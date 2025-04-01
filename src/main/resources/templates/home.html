@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>HOME</title>
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+<div th:replace="~{ nav.html::navbar}"></div>
+    <div class="bestseller-container" th:each="book : ${books}" >
+        <img th:src="${book.bsimg}"/>
+        <h1 th:text="${book.title}"></h1>
+        <p th:text="${book.author}"></p>
+        <p th:text="${book.price}"></p>
+        <p th:text="${book.date}"></p>
+    </div>
+</body>
+</html>

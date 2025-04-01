@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>블로그 작성 페이지</title>
+    <link href="/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div th:replace="~{ nav.html::navbar}"></div>
+<div class="writeblog-container">
+    <form method="post" action="/addblog">
+        <div>
+            <input name="title">
+            <input name="story">
+            <input type="file" id="fileInput"> <!-- 파일을 선택하는 input -->
+            <input type="hidden" name="imgurl" id="imgurl"> <!-- 업로드된 이미지 URL을 저장할 hidden input -->
+            <button type="button" onclick="uploadFile()">저장하기</button> <!-- 저장 버튼 클릭 시 업로드 -->
+        </div>
+    </form>
+
+    <script>
+        async function uploadFile() {
+            const fileInput = document.getElementById('fileInput');
+            if (!fileInput.files[0]) {
+                alert("파일을 선택하세요.");
+                return;
+            }
+
+            let name = encodeURIComponent(fileInput.files[0].name);
+            // 서버로 presigned URL 요청
+            let result = await fetch('/presigned-url?filename=' + name);
+            result = await result.text();
+
+            // presigned URL을 사용해 파일 업로드
+            let urlresult = await fetch(result, {
+                method: 'PUT',
+                body: fileInput.files[0]
+            });
+
+            if (urlresult.ok) {
+                // 업로드 성공 시, 서버에 저장할 URL을 hidden input에 저장
+                let imgurl = result.split("?")[0]; // Presigned URL에서 실제 URL만 추출
+                document.getElementById('imgurl').value = imgurl;
+
+                // 서버로 업로드된 이미지 URL을 전송하여 저장
+                document.querySelector('form').submit();
+            } else {
+                alert("업로드 실패");
+            }
+        }
+    </script>
+</div>
+</body>
+</html>

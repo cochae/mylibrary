@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book Search</title>
+</head>
+<body>
+<div th:replace="~{ nav.html::navbar}"></div>
+
+<h1>Books Search</h1>
+
+<!-- 검색어 입력 폼 -->
+<form action="#" th:action="@{/booksearch}" method="get">
+    <label for="query">Search for Books:</label>
+    <input type="text" id="query" name="query" th:value="${query}" placeholder="Enter search query"/>
+    <button type="submit">Search</button>
+</form>
+
+<h2>Results for: <span th:text="${query}"></span></h2>
+<!-- 책 목록 표시 -->
+<ul>
+    <li th:each="book : ${books}">
+        <div>
+            <h3 th:text="${book.title}"></h3>
+            <p th:text="'Author: ' + ${book.author}"></p>
+            <p th:text="'Published: ' + ${book.publishedDate}"></p>
+            <img th:src="${book.imageUrl}" alt="Book Image" width="100"/>
+            <form action="/save" method="POST">
+                <input type="hidden" name="title" th:value="${book.title}"/>
+                <input type="hidden" name="author" th:value="${book.author}"/>
+                <input type="hidden" name="publishedDate" th:value="${book.publishedDate}"/>
+                <button type="submit">저장</button>
+            </form>
+        </div>
+    </li>
+</ul>
+
+<!-- 페이지 네비게이션 -->
+<div>
+        <span th:if="${currentPage > 1}">
+            <a th:href="@{/booksearch(query=${query}, page=${currentPage - 1})}">Previous</a>
+        </span>
+    <div th:each="currentpage : ${totalPages}">
+            <!-- 1부터 totalPages까지 반복하여 페이지 번호 생성 -->
+            <span th:each="page : ${#numbers.sequence(1, totalPages)}">
+            <a th:href="@{/booksearch(query=${query}, page=${page})}" th:text="${page}"></a>
+        </span>
+    </div>
+
+
+        <span th:if="${currentPage < totalPages}">
+            <a th:href="@{/booksearch(query=${query}, page=${currentPage + 1})}">Next</a>
+        </span>
+</div>
+</body>
+</html>

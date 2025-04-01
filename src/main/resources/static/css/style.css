@@ -1,0 +1,346 @@
+@import "./reset.css";
+
+@font-face {
+  font-family: "SpoqaHanSansNeo-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  --s-text-basic: 16px;
+  --s-text-small: 14px;
+  --s-text-warning: 12px;
+
+  --primary: #8b1e3f;
+  --c-text-basic: #121212;
+  --c-focus: #24388d;
+  --c-warning: #ff1414;
+  --c-gray-10: #dadada;
+  --c-gray-20: #999;
+  --c-white: #fff;
+  --c-black: #333333;
+
+  --w-bold: 700;
+  --w-normal: 400;
+
+  font-size: var(--s-text-basic);
+  color: var(--c-text-basic);
+  font-weight: var(--w-normal);
+  font-family: "SpoqaHanSansNeo-Regular", sans-serif;
+
+  margin: 0;
+}
+
+.index-wrapper{
+    height: 100vh;
+    display:flex;
+    align-items: center;
+
+    .container {
+        margin: auto;
+        width: 500px;
+        text-align: center;
+        padding: 40px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+}
+/* 제목 스타일 */
+.title {
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-family: "Bagel Fat One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+.bagel-fat-one-regular {
+  font-family: "Bagel Fat One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/* 링크 스타일 */
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.link {
+    font-size: 15px;
+    text-decoration: none;
+    color: #4c6246;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.link:hover {
+    background-color: #506776;
+    color: white;
+}
+
+/* 푸터 스타일 */
+.footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: gray;
+}
+.home-icon {
+    font-size: 30px;
+    color: #2C3E50;
+    text-decoration: none;
+    padding: 10px;
+    background-color: e0f7da;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    position: absolute;    /* 절대 위치 */
+    top: 10px;             /* 상단에서 10px 떨어짐 */
+    left: 10px;            /* 왼쪽에서 10px 떨어짐 */
+}
+
+
+
+.writeblog-form {
+textarea{
+min-height:500px;
+min-width:500px;
+}
+}
+
+
+
+/* ST: login */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+
+  .login-form {
+    margin-inline: 20px;
+    box-sizing: content-box;
+
+    fieldset {
+      padding: 0;
+      border: 0;
+      margin: 0;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-flow: column wrap;
+      width: 500px;
+
+      .input {
+        margin-bottom: 10px;
+
+        input {
+          height: 48px;
+          box-sizing: border-box;
+          width: 100%;
+          font-size: var(--s-text-small);
+          color: var(--c-black);
+          padding: 14px 0 13px 14px;
+          border-radius: 0;
+          border: 1px solid var(--c-gray-10);
+
+          &::placeholder {
+            color: var(--c-gray-20);
+            font-size: var(--s-text-small);
+          }
+        }
+
+        [class^="warning"] {
+          display: none;
+          color: var(--c-warning);
+          font-size: var(--s-text-warning);
+          /* height: 17px; */
+        }
+
+        /* 사용자가 입력한 값이 잘못된 값일 때 */
+        input:user-invalid + [class^="warning"] {
+          margin-block: 7px 0;
+          display: block;
+        }
+      }
+
+      .login-state {
+        display: flex;
+        margin-bottom: 5px;
+        align-self: flex-end;
+
+        input {
+          appearance: none;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          margin-right: 5px;
+
+          background-image: url(./images/unchecked.svg);
+
+          &:checked {
+            background: url(./images/checked.svg);
+          }
+        }
+
+        label {
+          color: var(--c-black);
+          font-size: var(--s-text-small);
+          margin-top: 5px;
+        }
+      }
+
+      .login-btn {
+        /* height: 56px; */
+        border: none;
+        background-color: var(--primary);
+        color: var(--c-white);
+        text-align: center;
+        font-size: var(--s-text-basic);
+        font-weight: var(--w-bold);
+        padding-block: 16px;
+        margin-block: 10px;
+        width: 100%;
+      }
+    }
+  }
+}
+/* ED: login */
+
+/* ST: register */
+.register-container {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  fieldset {
+    padding: 0;
+    border: 0;
+    margin: 0;
+  }
+
+  .register-form {
+    margin-inline: 20px;
+    box-sizing: content-box;
+
+    gap: 45px;
+
+    fieldset {
+      padding: 0;
+      border: 0;
+      margin: 0;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-flow: column wrap;
+      width: 500px;
+
+      input {
+        height: 48px;
+        box-sizing: border-box;
+        width: 100%;
+        font-size: var(--s-text-small);
+        color: var(--c-black);
+        padding: 14px 0 13px 14px;
+        margin-bottom: 10px;
+
+        border-radius: 0;
+        border: 1px solid var(--c-gray-10);
+
+        &::placeholder {
+          color: var(--c-gray-20);
+          font-size: var(--s-text-small);
+        }
+      }
+
+      .register-btn {
+        /* height: 56px; */
+        border: none;
+        background-color: var(--primary);
+        color: var(--c-white);
+        text-align: center;
+        font-size: var(--s-text-basic);
+        font-weight: var(--w-bold);
+        padding-block: 16px;
+        margin-block: 10px;
+        width: 100%;
+      }
+    }
+  }
+}
+/* ED: login */
+
+/* ST: nav */
+/* ST: nav */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center; /* 세로 중앙 정렬 */
+  height: 64px;
+  width: 100%;
+  color: var(--c-black);
+
+  border-bottom: 1px solid var(--c-gray-10);
+
+  .nav-wrapper {
+    display: flex;
+    justify-content: space-between; /* 좌우로 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+
+    margin: auto;
+    width: 1050px;
+
+    .nav-bar {
+      a {
+        &:hover {
+          color: var(--primary);
+        }
+      }
+
+      span {
+        margin-inline: 10px;
+      }
+
+      .logo {
+        font-weight: bolder;
+        color: var(--primary);
+        margin-right: 40px;
+      }
+    }
+
+    .logout {
+      display: inline-block;
+      justify-self: flex-end;
+      /* border: 1px solid var(--primary); */
+      /* border-radius: 10px; */
+      /* background-color: var(--c-white); */
+      color: var(--c-black);
+      text-decoration: underline;
+      text-align: center;
+      font-size: var(--s-text-basic);
+      padding-block: 8px;
+      width: 100px;
+
+      /* &:hover {
+        background-color: var(--primary);
+        color: var(--c-white);
+      } */
+    }
+  }
+}
+/* ED: nav */
