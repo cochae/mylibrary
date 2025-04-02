@@ -1,38 +1,53 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>회원가입</title>
-    <link href="./css/style.css" rel="stylesheet">
-</head>
-<body>
-<div th:replace="~{ nav.html::navbar}"></div>
+    <link href="./css/style.css" rel="stylesheet" />
+    <!-- 시원 -->
+    <!-- <link href="../static/css/style.css" rel="stylesheet" /> -->
+  </head>
+  <body>
+    <div th:replace="~{ nav.html::navbar}"></div>
+    <!-- 시원 -->
+    <!-- <div id="navbar"></div> -->
 
-<!-- 회원가입 -->
-<div class="register-container">
-    <h2>회원가입</h2>
+    <!-- 회원가입 -->
+    <div class="register-container">
+      <h2>회원가입</h2>
 
-    <form class="register-form" action="/addmember" method="POST">
+      <form class="register-form" action="/addmember" method="POST">
         <fieldset>
-            <div class="wrapper">
-                <input name="displayname" placeholder="아이디" required />
+          <legend class="sr-only">회원가입</legend>
+          <div class="wrapper">
+            <input name="displayname" placeholder="아이디" required />
 
-                <input name="username" placeholder="이름" required />
+            <input name="username" placeholder="이름" required />
 
-                <input
-                        name="password"
-                        type="password"
-                        placeholder="비밀번호"
-                        required
-                />
+            <input
+              name="password"
+              type="password"
+              placeholder="비밀번호"
+              required
+            />
 
-                <input name="email" type="email" placeholder="이메일" required />
+            <input name="email" type="email" placeholder="이메일" required />
 
-                <input name="phone" type="tel" placeholder="핸드폰 번호" required />
+            <input name="phone" type="tel" placeholder="핸드폰 번호" required />
 
-                <button type="submit" class="register-btn">가입하기</button>
-            </div>
+            <button type="submit" class="register-btn">가입하기</button>
+          </div>
         </fieldset>
-    </form>
-</div></body>
+      </form>
+    </div>
+  </body>
+  <!-- 시원 -->
+  <!-- <script>
+    fetch("nav.html")
+      .then((response) => response.text())
+      .then((html) => {
+        document.getElementById("navbar").innerHTML = html;
+      })
+      .catch((error) => console.error("Error loading the navbar:", error));
+  </script> -->
 </html>
