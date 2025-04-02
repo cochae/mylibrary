@@ -184,24 +184,6 @@
               </div>
             </div>
           </div>
-
-          <div th:each="book : ${books}" class="book-card">
-            <img th:src="${book.bsimg}" alt="책" class="book-bsimg" />
-            <div class="book-info">
-              <p class="genre">소설</p>
-              <h4 th:text="${book.title}" class="book-title">
-                아몬드: 손원평 장편 소설
-              </h4>
-              <p th:text="${book.author}" class="book-author">손원평</p>
-              <p th:text="${book.price}" class="book-price">10,000원</p>
-              <div class="wrapper">
-                <span th:text="${book.date}" class="book-date"
-                  >2025.04.02.</span
-                >
-                <a href="" class="go-to-detail">상세보기</a>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
       <!-- ED: 베스트 셀러 -->
