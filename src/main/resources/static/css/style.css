@@ -460,7 +460,7 @@ body {
       border: 1px solid var(--sub-primary);
       border-radius: 8px;
 
-      min-width: 220px;
+      width: 220px;
       height: 480px;
 
       .book-bsimg {
@@ -500,8 +500,9 @@ body {
 
         .book-title {
           font-size: 1rem;
-        }
-        .book-author {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
         }
 
         .wrapper {
@@ -511,7 +512,55 @@ body {
       }
     }
   }
+
+  /* ST: 서비스 소개 */
+  .service-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+
+    .service-card {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 8px;
+      padding: 24px;
+      width: 180px;
+      height: 180px;
+
+      background-color: #f9fafb;
+
+      img {
+        width: 40px;
+        aspect-ratio: 1/1;
+      }
+
+      h4 {
+        font-weight: bold;
+      }
+
+      p {
+        font-size: 12px;
+        color: var(--c-gray-20);
+      }
+    }
+  }
+  /* ED: 서비스 소개 */
 }
 /* ED: main-container */
-
 /* ED: home */
+
+/* ST: footer */
+.footer-wrapper {
+  padding: 48px 32px;
+
+  background-color: #64162d;
+
+  text-align: center;
+  font-size: 14px;
+  color: var(--sub-primary);
+}
+/* ED: footer */
