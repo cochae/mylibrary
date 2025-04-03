@@ -8,6 +8,7 @@
 
 </head>
 <body>
+<div th:replace="~{ nav.html::navbar}"></div>
 
 <div class="blog-container">
     <h1 th:text="${blog.title}"></h1> <!-- DB에서 가져온 블로그 제목 -->
