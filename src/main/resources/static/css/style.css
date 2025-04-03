@@ -145,6 +145,13 @@ body {
   align-items: center;
   height: 100dvh;
 
+  h2 {
+    margin-bottom: 24px;
+
+    font-size: 24px;
+    font-weight: bold;
+  }
+
   .login-form {
     margin-inline: 20px;
     box-sizing: content-box;
@@ -243,6 +250,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  h2 {
+    margin-bottom: 24px;
+
+    font-size: 24px;
+    font-weight: bold;
+  }
 
   fieldset {
     padding: 0;

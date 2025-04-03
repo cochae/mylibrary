@@ -5,24 +5,13 @@
     <title>HOME</title>
     <link href="/css/style.css" rel="stylesheet" />
     <!-- 시원 -->
-    <link href="../static/css/style.css" rel="stylesheet" />
+    <!-- <link href="../static/css/style.css" rel="stylesheet" /> -->
   </head>
   <body>
     <!-- navbar -->
     <div th:replace="~{ nav.html::navbar}"></div>
     <!-- 시원 -->
-    <div id="navbar"></div>
-
-    <!-- ST: bestseller-container -->
-    <!-- 채원 -->
-    <!-- <div class="bestseller-container" th:each="book : ${books}">
-      <img th:src="${book.bsimg}" />
-      <h1 th:text="${book.title}"></h1>
-      <p th:text="${book.author}"></p>
-      <p th:text="${book.price}"></p>
-      <p th:text="${book.date}"></p>
-    </div> -->
-    <!-- ED: bestseller-container -->
+    <!-- <div id="navbar"></div> -->
 
     <!-- ST: 메인 배너 -->
     <div class="main-banner">
@@ -147,10 +136,10 @@
     <!-- footer -->
     <div th:replace="~{ footer.html::footer}"></div>
     <!-- 시원 -->
-    <div id="footer"></div>
+    <!-- <div id="footer"></div> -->
   </body>
   <!-- 시원 -->
-  <script>
+  <!-- <script>
     fetch("nav.html")
       .then((response) => response.text())
       .then((html) => {
@@ -163,5 +152,5 @@
         document.getElementById("footer").innerHTML = html;
       })
       .catch((error) => console.error("Error loading the navbar:", error));
-  </script>
+  </script> -->
 </html>

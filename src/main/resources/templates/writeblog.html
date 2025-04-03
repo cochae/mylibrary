@@ -1,16 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <title>블로그 작성 페이지</title>
     <link href="/css/style.css" rel="stylesheet" />
     <!-- 시원 -->
-    <!--    <link href="../static/css/style.css" rel="stylesheet" />-->
+    <!-- <link href="../static/css/style.css" rel="stylesheet" /> -->
   </head>
   <body>
     <div th:replace="~{ nav.html::navbar}"></div>
     <!-- 시원 -->
-    <!--    <div id="navbar"></div>-->
+    <!-- <div id="navbar"></div> -->
 
     <div class="main-container writeblog-container">
       <h2>블로그 작성</h2>
@@ -47,13 +47,16 @@
     <!-- footer -->
     <div th:replace="~{ footer.html::footer}"></div>
     <!-- 시원 -->
-    <div id="footer"></div>
+    <!-- <div id="footer"></div> -->
 
     <script>
       async function uploadFile() {
         const fileInput = document.getElementById("fileInput");
-        if (!fileInput.files[0]) {
-          alert("파일을 선택하세요.");
+        const imgurlInput = document.getElementById("imgurl");
+
+        if (fileInput.files.length == 0) {
+          imgurlInput.value = "";
+          document.querySelector("form").submit();
           return;
         }
 
@@ -82,7 +85,7 @@
     </script>
   </body>
   <!-- 시원 -->
-  <script>
+  <!-- <script>
     fetch("nav.html")
       .then((response) => response.text())
       .then((html) => {
@@ -95,5 +98,5 @@
         document.getElementById("footer").innerHTML = html;
       })
       .catch((error) => console.error("Error loading the navbar:", error));
-  </script>
+  </script> -->
 </html>
