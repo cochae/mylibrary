@@ -20,6 +20,15 @@
   border: 0;
 }
 
+*:focus {
+  outline: 0;
+}
+
+*:focus-visible {
+  box-shadow: 0 0 0 1px var(--primary);
+  border-radius: 8px;
+}
+
 body {
   --s-text-basic: 16px;
   --s-text-small: 14px;
@@ -62,6 +71,13 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
 }
+
+/* main-container */
+.main-container {
+  margin-inline: auto;
+  width: 1050px;
+}
+
 /* 제목 스타일 */
 .title {
   font-size: 32px;
@@ -117,13 +133,6 @@ body {
   position: absolute; /* 절대 위치 */
   top: 10px; /* 상단에서 10px 떨어짐 */
   left: 10px; /* 왼쪽에서 10px 떨어짐 */
-}
-
-.writeblog-form {
-  textarea {
-    min-height: 500px;
-    min-width: 500px;
-  }
 }
 
 /* ST: login */
@@ -422,10 +431,7 @@ body {
 /* ED: main-banner */
 
 /* ST: main-container */
-.main-container {
-  margin-inline: auto;
-  width: 1050px;
-
+.home-container {
   /* ST: section 공통 */
   section {
     display: flex;
@@ -564,3 +570,62 @@ body {
   color: var(--sub-primary);
 }
 /* ED: footer */
+
+/* ST: writeblog */
+.writeblog-container {
+  margin-top: 64px;
+  padding-block: 48px;
+
+  h2 {
+    margin-bottom: 48px;
+
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .write-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    text-align: center;
+
+    .input-title {
+      border: 0;
+      border-bottom: var(--c-gray-20) 1px solid;
+      padding: 10px;
+
+      height: 30px;
+
+      font-size: 20px;
+    }
+
+    .input-story {
+      border-radius: 8px;
+      padding: 10px;
+
+      resize: none;
+      height: 40vh;
+    }
+
+    .upload-btn {
+      cursor: not-allowed;
+
+      align-self: center;
+
+      padding: 10px 30px;
+      border-radius: 8px;
+      border: 0;
+
+      font-weight: bold;
+    }
+  }
+
+  form:valid .upload-btn {
+    cursor: pointer;
+
+    background-color: var(--primary);
+    color: var(--c-white);
+  }
+}
