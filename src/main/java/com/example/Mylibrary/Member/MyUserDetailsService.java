@@ -18,9 +18,9 @@ public class MyUserDetailsService implements UserDetailsService {
     private final MemberRespository memberRespository;
 
     @Override
-    public UserDetails loadUserByUsername(String displayname) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         // displayname으로 회원 조회
-        var result = memberRespository.findByDisplayname(displayname);
+        var result = memberRespository.findByUsername(username);
 
         // 회원이 없으면 예외를 던짐
         if (result.isEmpty()) {
@@ -35,6 +35,6 @@ public class MyUserDetailsService implements UserDetailsService {
         authorities.add(new SimpleGrantedAuthority("ROLE_일반유저"));  // 권한에 ROLE_ 접두어 사용
 
         // User 객체 반환 (아이디, 비밀번호, 권한 정보)
-        return new User(user.getDisplayname(), user.getPassword(), authorities);
+        return new User(user.getUsername(), user.getPassword(), authorities);
     }
 }

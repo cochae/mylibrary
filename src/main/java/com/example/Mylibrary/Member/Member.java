@@ -13,8 +13,8 @@ public class Member  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String username;
     @Column(unique = true)
+    private String username;
     private String displayname;
     private String password;
     private String phone;
