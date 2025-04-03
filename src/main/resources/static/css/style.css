@@ -128,7 +128,9 @@ body {
   padding: 10px;
   background-color: e0f7da;
   border-radius: 50%;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 
   position: absolute; /* 절대 위치 */
   top: 10px; /* 상단에서 10px 떨어짐 */

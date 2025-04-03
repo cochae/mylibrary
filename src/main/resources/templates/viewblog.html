@@ -1,24 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>블로그 보기</title>
     <link href="/css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div th:replace="~{ nav.html::navbar}"></div>
 
-</head>
-<body>
-<div th:replace="~{ nav.html::navbar}"></div>
+    <div class="blog-container">
+      <h1 th:text="${blog.title}"></h1>
+      <!-- DB에서 가져온 블로그 제목 -->
+      <p th:text="${blog.story}"></p>
+      <!-- DB에서 가져온 블로그 본문 -->
+      <!-- DB에서 가져온 이미지 URL을 img 태그로 출력 -->
+      <img
+        th:src="${blog.imgurl}"
+        alt="블로그 이미지"
+        style="max-width: 100%; height: auto"
+      />
 
-<div class="blog-container">
-    <h1 th:text="${blog.title}"></h1> <!-- DB에서 가져온 블로그 제목 -->
-    <p th:text="${blog.story}"></p> <!-- DB에서 가져온 블로그 본문 -->
-    <!-- DB에서 가져온 이미지 URL을 img 태그로 출력 -->
-    <img th:src="${blog.imgurl}" alt="블로그 이미지" style="max-width: 100%; height: auto;"/>
-
-    <p>작성일: <span th:text="${blog.createdAt}"></span></p> <!-- 블로그 작성일 -->
-
-</div>
-
-</body>
+      <p>작성일: <span th:text="${blog.createdAt}"></span></p>
+      <!-- 블로그 작성일 -->
+    </div>
+  </body>
 </html>

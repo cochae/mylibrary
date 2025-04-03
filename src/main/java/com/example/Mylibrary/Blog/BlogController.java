@@ -21,7 +21,7 @@ public class BlogController {
     @PostMapping("/addblog")
     public String addblog(@ModelAttribute Blog blog) {
         blogRepository.save(blog);
-        return "redirect:/bloglist.html";
+        return "redirect:/bloglist";
     }
 
     @GetMapping("/writeblog")
