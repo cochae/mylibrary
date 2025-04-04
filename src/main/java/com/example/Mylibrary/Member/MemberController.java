@@ -18,12 +18,9 @@ public class MemberController {
 
     @PostMapping("/addmember")
     public String addMember(@ModelAttribute Member member){
-
         var hash = new BCryptPasswordEncoder().encode(member.getPassword());
         member.setPassword(hash);
         memberRespository.save(member);
-        memberRespository.flush();
-
         return "redirect:/login.html";
     }
     @GetMapping("/register")

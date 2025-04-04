@@ -23,7 +23,7 @@ public class SecurityConfig {
         // 정적 리소스 경로 및 로그인/회원가입 경로 허용
         // 정적 리소스 경로 및 로그인/회원가입 경로 허용
         http.authorizeHttpRequests(auth ->
-                auth.requestMatchers("/", "/login", "/register", "/css/**", "/images/**", "/js/**", "/index.html").permitAll()  // /index.html을 permitAll로 설정
+                auth.requestMatchers("/addmember", "/", "/login", "/register", "/css/**", "/images/**", "/js/**", "/index.html").permitAll()  // /index.html을 permitAll로 설정
                         .anyRequest().authenticated() // 그 외 모든 요청은 로그인 필수
         );
 
