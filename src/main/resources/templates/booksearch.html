@@ -5,7 +5,7 @@
 
 </head>
 <body>
-<div th:replace="~{ nav.html::navbar}"></div>
+<!--<div th:replace="~{ nav.html::nav-bar}"></div>-->
 
 <h1>Books Search</h1>
 
@@ -37,20 +37,18 @@
 
 <!-- 페이지 네비게이션 -->
 <div>
-        <span th:if="${currentPage > 1}">
-            <a th:href="@{/booksearch(query=${query}, page=${currentPage - 1})}">Previous</a>
-        </span>
-    <div th:each="currentpage : ${totalPages}">
-            <!-- 1부터 totalPages까지 반복하여 페이지 번호 생성 -->
-            <span th:each="page : ${#numbers.sequence(1, totalPages)}">
-            <a th:href="@{/booksearch(query=${query}, page=${page})}" th:text="${page}"></a>
-        </span>
-    </div>
-
-
-        <span th:if="${currentPage < totalPages}">
-            <a th:href="@{/booksearch(query=${query}, page=${currentPage + 1})}">Next</a>
-        </span>
+    <span th:if="${currentPage > 1}">
+        <a th:href="@{/booksearch(query=${query}, page=${currentPage - 1})}">Previous</a>
+    </span>
+<div th:each="currentpage : ${totalPages}">
+        <!-- 1부터 totalPages까지 반복하여 페이지 번호 생성 -->
+    <span th:each="page : ${#numbers.sequence(1, totalPages)}">
+        <a th:href="@{/booksearch(query=${query}, page=${page})}" th:text="${page}"></a>
+    </span>
+</div>
+    <span th:if="${currentPage < totalPages}">
+        <a th:href="@{/booksearch(query=${query}, page=${currentPage + 1})}">Next</a>
+    </span>
 </div>
 </body>
 </html>

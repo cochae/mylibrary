@@ -14,16 +14,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RequiredArgsConstructor
 @Controller
 public class MemberController {
-    private final MemberRespository memberRespository;
+    private final MemberRepository memberRepository;
 
     @PostMapping("/addmember")
     public String addMember(@ModelAttribute Member member){
-
         var hash = new BCryptPasswordEncoder().encode(member.getPassword());
         member.setPassword(hash);
-        memberRespository.save(member);
-        memberRespository.flush();
-
+        memberRepository.save(member);
         return "redirect:/login.html";
     }
     @GetMapping("/register")
