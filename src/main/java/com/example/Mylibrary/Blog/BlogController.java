@@ -1,5 +1,7 @@
 package com.example.Mylibrary.Blog;
 
+import com.example.Mylibrary.Comment.Comment;
+import com.example.Mylibrary.Comment.CommentRepository;
 import com.example.Mylibrary.Member.CustomUser;
 import com.example.Mylibrary.Member.Member;
 import com.example.Mylibrary.Member.MemberRepository;
@@ -18,6 +20,7 @@ public class BlogController {
     private final BlogRepository blogRepository;
     private final S3Service s3Service;
     private final MemberRepository memberRepository;
+    private final CommentRepository commentRepository;
 
     @PostMapping("/addblog")
     public String addblog(@ModelAttribute Blog blog, Authentication auth) {
@@ -43,12 +46,16 @@ public class BlogController {
 
     @GetMapping("/viewblog/{id}")
     String viewblog(@PathVariable Integer id, Model model) {
-        Optional<Blog> result = blogRepository.findById(id);
+       Optional<Blog> result = blogRepository.findById(id);
+       List<Comment> comments = commentRepository.findByBlog_Id(id);
+
         if (result.isPresent()) {
             model.addAttribute("blog", result.get());
+            model.addAttribute("comment", comments);
             return "viewblog.html";
         }
-        return "redirect:/home";
+        else
+            return "redirect:/bloglist";
     }
 
     @GetMapping("/bloglist")

@@ -23,7 +23,7 @@ public class SecurityConfig {
         // 정적 리소스 경로 및 로그인/회원가입 경로 허용
         // 정적 리소스 경로 및 로그인/회원가입 경로 허용
         http.authorizeHttpRequests(auth ->
-                auth.requestMatchers("/addmember", "/", "/login", "/register", "/css/**", "/images/**", "/js/**", "/index.html").permitAll()  // /index.html을 permitAll로 설정
+                auth.requestMatchers("/addmember", "/", "/login", "/register", "/css/**", "/images/**", "/js/**", "/index.html", "/favicon.ico").permitAll()  // /index.html을 permitAll로 설정
                         .anyRequest().authenticated() // 그 외 모든 요청은 로그인 필수
         );
 
@@ -32,7 +32,7 @@ public class SecurityConfig {
         http.formLogin(formLogin ->
                 formLogin.loginPage("/login")  // 커스텀 로그인 페이지 경로
                         .usernameParameter("username")
-                        .defaultSuccessUrl("/home", false)  // 로그인 성공 후 /home으로 리디렉션
+                        .defaultSuccessUrl("/home", true)  // 로그인 성공 후 /home으로 리디렉션
                         .failureUrl("/fail") // 로그인 실패 시 /fail로 리디렉션
         );
 

@@ -22,7 +22,14 @@
       />
       <p>작성자: <span th:text="${blog.writer}"></span></p>
       <p>작성일: <span th:text="${blog.createdAt}"></span></p>
+      <p>댓글: <span th:text="${comment[0].story}"></span></p>
+      <p>작성자: <span th:text="${comment[0].writer}"></span></p>
       <!-- 블로그 작성일 -->
+      <form class="addcomment-form" action="/addcomment" method="POST">
+        <input name="story"/>
+        <input type="hidden" name="blog_id" th:value="${blog.id}"/>
+            <button type="submit" class="register-btn">등록</button>
+      </form>
     </div>
   </body>
 </html>
