@@ -74,6 +74,7 @@ body {
 
 /* main-container */
 .main-container {
+  margin-top: 64px;
   margin-inline: auto;
   width: 1050px;
 }
@@ -128,9 +129,7 @@ body {
   padding: 10px;
   background-color: e0f7da;
   border-radius: 50%;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 
   position: absolute; /* 절대 위치 */
   top: 10px; /* 상단에서 10px 떨어짐 */
@@ -455,6 +454,7 @@ body {
     align-items: center;
     gap: 40px;
 
+    margin-top: -48px;
     padding-block: 48px;
 
     text-align: center;
@@ -589,7 +589,6 @@ body {
 
 /* ST: writeblog */
 .writeblog-container {
-  margin-top: 64px;
   padding-block: 48px;
 
   h2 {
