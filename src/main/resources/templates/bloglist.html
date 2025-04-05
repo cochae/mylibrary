@@ -10,12 +10,12 @@
     <title>Document</title>
     <link href="/css/style.css" rel="stylesheet" />
     <!-- 시원 -->
-    <link href="../static/css/style.css" rel="stylesheet" />
+    <!-- <link href="../static/css/style.css" rel="stylesheet" /> -->
   </head>
   <body>
     <div th:replace="~{ nav.html::navbar}"></div>
     <!-- 시원 -->
-    <div id="navbar"></div>
+    <!-- <div id="navbar"></div> -->
 
     <!-- <div>
       <div class="card" th:each="i : ${blogs}">
@@ -210,10 +210,10 @@
     </div>
 
     <!-- 시원 -->
-    <div id="footer"></div>
+    <!-- <div id="footer"></div> -->
   </body>
   <!-- 시원 -->
-  <script>
+  <!-- <script>
     fetch("nav.html")
       .then((response) => response.text())
       .then((html) => {
@@ -226,5 +226,5 @@
         document.getElementById("footer").innerHTML = html;
       })
       .catch((error) => console.error("Error loading the navbar:", error));
-  </script>
+  </script> -->
 </html>
