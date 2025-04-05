@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -9,18 +9,222 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <link href="/css/style.css" rel="stylesheet" />
+    <!-- 시원 -->
+    <!-- <link href="../static/css/style.css" rel="stylesheet" /> -->
   </head>
   <body>
     <div th:replace="~{ nav.html::navbar}"></div>
-    <div>
+    <!-- 시원 -->
+    <!-- <div id="navbar"></div> -->
+
+    <!-- <div>
       <div class="card" th:each="i : ${blogs}">
         <div class="card-content">
-          <!-- 오른쪽 텍스트 영역 -->
+          오른쪽 텍스트 영역
           <a th:href="@{ '/viewblog/' + ${i.id} }">
             <h4 th:text="${i.title}"></h4>
           </a>
         </div>
       </div>
+    </div> -->
+
+    <div class="main-container bloglist-container">
+      <h2>블로그</h2>
+
+      <section>
+        <h3>인기 글</h3>
+        <div class="hot-blog-card-container">
+          <div class="hot-blog-card">
+            <img src="/" alt="" />
+            <h4>블로그 제목</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+              delectus repudiandae corrupti nemo quaerat. Minima, suscipit.
+              Optio quod accusamus dicta architecto, ducimus, sint odio sequi
+              eos ipsa totam unde dolor. AI 코딩 도구를 활용하면 코드 생성 및
+              자동화, 개발 워크플로우와의 통합 등이 가능하며 기존 개발 환경 대비
+              생산성을 높일 수 있습니다. 그러나 개발자를 꿈꾸며 학습을하는 예비
+              개발자에게 AI 코딩 도구는 양날의 검이 될 수 있습니다. AI 코딩
+              도구에만 의존하는 주니어 개발자는 경쟁력을 갖출 수 없기
+              때문입니다. 오히려 더 깊이 있게 언어를 학습하고 좋은 질문을 할 수
+              있도록 문해력(Literacy)을 기르는 것이 필요합니다. 다만 AI 도구를
+              완전히 배제하는 것이 아닌 학습을 위한 파트너로서 활용할 것을
+              추천합니다.
+            </p>
+            <div class="wrapper">
+              <span>2025.04.05.</span>
+              <span>000</span>
+            </div>
+          </div>
+          <div class="hot-blog-card">
+            <img src="/" alt="" />
+            <h4>블로그 제목</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+              delectus repudiandae corrupti nemo quaerat. Minima, suscipit.
+              Optio quod accusamus dicta architecto, ducimus, sint odio sequi
+              eos ipsa totam unde dolor. AI 코딩 도구를 활용하면 코드 생성 및
+              자동화, 개발 워크플로우와의 통합 등이 가능하며 기존 개발 환경 대비
+              생산성을 높일 수 있습니다. 그러나 개발자를 꿈꾸며 학습을하는 예비
+              개발자에게 AI 코딩 도구는 양날의 검이 될 수 있습니다. AI 코딩
+              도구에만 의존하는 주니어 개발자는 경쟁력을 갖출 수 없기
+              때문입니다. 오히려 더 깊이 있게 언어를 학습하고 좋은 질문을 할 수
+              있도록 문해력(Literacy)을 기르는 것이 필요합니다. 다만 AI 도구를
+              완전히 배제하는 것이 아닌 학습을 위한 파트너로서 활용할 것을
+              추천합니다.
+            </p>
+            <div class="wrapper">
+              <span>2025.04.05.</span>
+              <span>000</span>
+            </div>
+          </div>
+          <div class="hot-blog-card">
+            <img src="/" alt="" />
+            <h4>블로그 제목</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+              delectus repudiandae corrupti nemo quaerat. Minima, suscipit.
+              Optio quod accusamus dicta architecto, ducimus, sint odio sequi
+              eos ipsa totam unde dolor. AI 코딩 도구를 활용하면 코드 생성 및
+              자동화, 개발 워크플로우와의 통합 등이 가능하며 기존 개발 환경 대비
+              생산성을 높일 수 있습니다. 그러나 개발자를 꿈꾸며 학습을하는 예비
+              개발자에게 AI 코딩 도구는 양날의 검이 될 수 있습니다. AI 코딩
+              도구에만 의존하는 주니어 개발자는 경쟁력을 갖출 수 없기
+              때문입니다. 오히려 더 깊이 있게 언어를 학습하고 좋은 질문을 할 수
+              있도록 문해력(Literacy)을 기르는 것이 필요합니다. 다만 AI 도구를
+              완전히 배제하는 것이 아닌 학습을 위한 파트너로서 활용할 것을
+              추천합니다.
+            </p>
+            <div class="wrapper">
+              <span>2025.04.05.</span>
+              <span>000</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>새 글</h3>
+        <div class="blog-card-container">
+          <article class="blog-card">
+            <div class="blog-info">
+              <p class="blog-profile">
+                <img src="" alt="프로필 사진" />
+                <span>000</span>
+              </p>
+              <h4 class="blog-title">블로그 제목</h4>
+              <p class="blog-content">
+                AI 코딩 도구를 활용하면 코드 생성 및 자동화, 개발 워크플로우와의
+                통합 등이 가능하며 기존 개발 환경 대비 생산성을 높일 수
+                있습니다. 그러나 개발자를 꿈꾸며 학습을하는 예비 개발자에게 AI
+                코딩 도구는 양날의 검이 될 수 있습니다. AI 코딩 도구에만
+                의존하는 주니어 개발자는 경쟁력을 갖출 수 없기 때문입니다.
+                오히려 더 깊이 있게 언어를 학습하고 좋은 질문을 할 수 있도록
+                문해력(Literacy)을 기르는 것이 필요합니다. 다만 AI 도구를 완전히
+                배제하는 것이 아닌 학습을 위한 파트너로서 활용할 것을
+                추천합니다. AI 코딩 도구를 활용하면 코드 생성 및 자동화, 개발
+                워크플로우와의 통합 등이 가능하며 기존 개발 환경 대비 생산성을
+                높일 수 있습니다. 그러나 개발자를 꿈꾸며 학습을하는 예비
+                개발자에게 AI 코딩 도구는 양날의 검이 될 수 있습니다. AI 코딩
+                도구에만 의존하는 주니어 개발자는 경쟁력을 갖출 수 없기
+                때문입니다. 오히려 더 깊이 있게 언어를 학습하고 좋은 질문을 할
+                수 있도록 문해력(Literacy)을 기르는 것이 필요합니다. 다만 AI
+                도구를 완전히 배제하는 것이 아닌 학습을 위한 파트너로서 활용할
+                것을 추천합니다.
+              </p>
+              <p class="wrapper-like-comment">
+                <span>공감 </span><span>24</span> | <span>댓글 </span>
+                <span>1</span>
+              </p>
+            </div>
+            <img src="" alt="" />
+          </article>
+          <article class="blog-card">
+            <div class="blog-info">
+              <p class="blog-profile">
+                <img src="" alt="프로필 사진" />
+                <span>000</span>
+              </p>
+              <h4 class="blog-title">블로그 제목</h4>
+              <p class="blog-content">
+                AI 코딩 도구를 활용하면 코드 생성 및 자동화, 개발 워크플로우와의
+                통합 등이 가능하며 기존 개발 환경 대비 생산성을 높일 수
+                있습니다. 그러나 개발자를 꿈꾸며 학습을하는 예비 개발자에게 AI
+                코딩 도구는 양날의 검이 될 수 있습니다. AI 코딩 도구에만
+                의존하는 주니어 개발자는 경쟁력을 갖출 수 없기 때문입니다.
+                오히려 더 깊이 있게 언어를 학습하고 좋은 질문을 할 수 있도록
+                문해력(Literacy)을 기르는 것이 필요합니다. 다만 AI 도구를 완전히
+                배제하는 것이 아닌 학습을 위한 파트너로서 활용할 것을
+                추천합니다. AI 코딩 도구를 활용하면 코드 생성 및 자동화, 개발
+                워크플로우와의 통합 등이 가능하며 기존 개발 환경 대비 생산성을
+                높일 수 있습니다. 그러나 개발자를 꿈꾸며 학습을하는 예비
+                개발자에게 AI 코딩 도구는 양날의 검이 될 수 있습니다. AI 코딩
+                도구에만 의존하는 주니어 개발자는 경쟁력을 갖출 수 없기
+                때문입니다. 오히려 더 깊이 있게 언어를 학습하고 좋은 질문을 할
+                수 있도록 문해력(Literacy)을 기르는 것이 필요합니다. 다만 AI
+                도구를 완전히 배제하는 것이 아닌 학습을 위한 파트너로서 활용할
+                것을 추천합니다.
+              </p>
+              <p class="wrapper-like-comment">
+                <span>공감 </span><span>24</span> | <span>댓글 </span>
+                <span>1</span>
+              </p>
+            </div>
+            <img src="" alt="" />
+          </article>
+          <article class="blog-card">
+            <div class="blog-info">
+              <p class="blog-profile">
+                <img src="" alt="프로필 사진" />
+                <span>000</span>
+              </p>
+              <h4 class="blog-title">블로그 제목</h4>
+              <p class="blog-content">
+                AI 코딩 도구를 활용하면 코드 생성 및 자동화, 개발 워크플로우와의
+                통합 등이 가능하며 기존 개발 환경 대비 생산성을 높일 수
+                있습니다. 그러나 개발자를 꿈꾸며 학습을하는 예비 개발자에게 AI
+                코딩 도구는 양날의 검이 될 수 있습니다. AI 코딩 도구에만
+                의존하는 주니어 개발자는 경쟁력을 갖출 수 없기 때문입니다.
+                오히려 더 깊이 있게 언어를 학습하고 좋은 질문을 할 수 있도록
+                문해력(Literacy)을 기르는 것이 필요합니다. 다만 AI 도구를 완전히
+                배제하는 것이 아닌 학습을 위한 파트너로서 활용할 것을
+                추천합니다. AI 코딩 도구를 활용하면 코드 생성 및 자동화, 개발
+                워크플로우와의 통합 등이 가능하며 기존 개발 환경 대비 생산성을
+                높일 수 있습니다. 그러나 개발자를 꿈꾸며 학습을하는 예비
+                개발자에게 AI 코딩 도구는 양날의 검이 될 수 있습니다. AI 코딩
+                도구에만 의존하는 주니어 개발자는 경쟁력을 갖출 수 없기
+                때문입니다. 오히려 더 깊이 있게 언어를 학습하고 좋은 질문을 할
+                수 있도록 문해력(Literacy)을 기르는 것이 필요합니다. 다만 AI
+                도구를 완전히 배제하는 것이 아닌 학습을 위한 파트너로서 활용할
+                것을 추천합니다.
+              </p>
+              <p class="wrapper-like-comment">
+                <span>공감 </span><span>24</span> | <span>댓글 </span>
+                <span>1</span>
+              </p>
+            </div>
+            <img src="" alt="" />
+          </article>
+        </div>
+      </section>
     </div>
+
+    <!-- 시원 -->
+    <!-- <div id="footer"></div> -->
   </body>
+  <!-- 시원 -->
+  <!-- <script>
+    fetch("nav.html")
+      .then((response) => response.text())
+      .then((html) => {
+        document.getElementById("navbar").innerHTML = html;
+      })
+      .catch((error) => console.error("Error loading the navbar:", error));
+    fetch("footer.html")
+      .then((response) => response.text())
+      .then((html) => {
+        document.getElementById("footer").innerHTML = html;
+      })
+      .catch((error) => console.error("Error loading the navbar:", error));
+  </script> -->
 </html>
