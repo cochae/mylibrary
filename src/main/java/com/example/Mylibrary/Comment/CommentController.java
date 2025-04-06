@@ -29,6 +29,6 @@ public class CommentController {
         comment.setWriter(user.getUsername());
         comment.setBlog(blog);
         commentRepository.save(comment);
-        return "redirect:/bloglist";
+        return "redirect:/viewblog/" + blog_id;
     }
 }

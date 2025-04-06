@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>나만의 도서관</title>
+</head>
+<body>
+    <div class="card" th:each="book : ${books}">
+        <h4 th:text="${book.title}"></h4>
+        <h4 th:text="${book.author}"></h4>
+        <h4 th:text="${book.publishedDate}"></h4>
+        <img th:src="${book.imageUrl}" alt="Book Image" width="100"/>
+    </div>
+</body>
+</html>

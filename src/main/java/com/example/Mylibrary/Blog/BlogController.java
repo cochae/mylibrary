@@ -50,21 +50,26 @@ public class BlogController {
        List<Comment> comments = commentRepository.findByBlog_Id(id);
 
         if (result.isPresent()) {
+            System.out.println("✅ 블로그 있음");
+
             model.addAttribute("blog", result.get());
-            model.addAttribute("comment", comments);
+            model.addAttribute("comments", comments);
             return "viewblog.html";
         }
         else
             return "redirect:/bloglist";
     }
 
-    @GetMapping("/bloglist")
-    String bloglist(Model model, Authentication auth) {
+    @GetMapping("/mybloglist")
+    String mybloglist(Model model, Authentication auth) {
         CustomUser user = (CustomUser) auth.getPrincipal();
         Member member = memberRepository.findByUsername(user.getUsername()).orElseThrow();
         List<Blog> result = blogRepository.findByMember(member);
         model.addAttribute("blogs", result);
+        return "mybloglist.html";
+    }
+    @GetMapping("/bloglist")
+    String bloglist(){
         return "bloglist.html";
     }
-
 }

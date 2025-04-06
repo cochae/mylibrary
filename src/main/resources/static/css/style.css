@@ -649,7 +649,7 @@ body {
 
 /* ST: bloglist */
 .bloglist-container {
-  h2 {
+  & h2 {
     margin-bottom: 48px;
 
     font-size: 24px;

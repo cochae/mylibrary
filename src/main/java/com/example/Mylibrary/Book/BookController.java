@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -17,7 +18,7 @@ import java.util.List;
 public class BookController {
     @Autowired
     private final BookService bookService;
-
+    private final BookRepository bookRepository;
     private final GoogleBooksApiService googleBooksApiService;
 
     @GetMapping("/booksearch")
@@ -34,24 +35,33 @@ public class BookController {
         return "booksearch.html"; // booksearch.html로 반환
     }
     @PostMapping("/save")
-    public String saveBook(String title, String author, String publishedDate, String image){
-        BookDto bookDto = new BookDto(title, author, publishedDate);
+    public String saveBook(@ModelAttribute BookDto bookDto) {
         bookService.saveBook(bookDto);
-        return "booksearch.html";
+        return "redirect:/mybookshelf";
+    }
+
+    @GetMapping("/mybookshelf")
+    public String mybookshelf(Model model){
+        var result = bookRepository.findAll();
+        model.addAttribute("books", result);
+        return "mybookshelf.html";
     }
 }
+
 @Getter
 @Setter
 
 class BookDto{
+    private String imageUrl;
     public String title;
     public String author;
     public String publishedDate;
 
-    BookDto(String title, String author, String publishedDate){
+    BookDto(String title, String author, String publishedDate, String imageUrl){
         this.title = title;
         this.author = author;
         this.publishedDate = publishedDate;
+        this.imageUrl = imageUrl;
     }
 }
 

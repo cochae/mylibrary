@@ -1,5 +1,7 @@
-package com.example.Mylibrary.BestSeller;
+package com.example.Mylibrary;
 
+import com.example.Mylibrary.BestSeller.BestSeller;
+import com.example.Mylibrary.BestSeller.BestSellerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -15,15 +15,20 @@
       <p th:text="${blog.story}"></p>
       <!-- DB에서 가져온 블로그 본문 -->
       <!-- DB에서 가져온 이미지 URL을 img 태그로 출력 -->
-      <img
-        th:src="${blog.imgurl}"
-        alt="블로그 이미지"
-        style="max-width: 100%; height: auto"
-      />
+      <div th:if="${blog.imgurl != null}">
+        <img
+                th:src="${blog.imgurl}"
+                alt="블로그 이미지"
+                style="max-width: 100%; height: auto"
+        />
+      </div>
+
       <p>작성자: <span th:text="${blog.writer}"></span></p>
       <p>작성일: <span th:text="${blog.createdAt}"></span></p>
-      <p>댓글: <span th:text="${comment[0].story}"></span></p>
-      <p>작성자: <span th:text="${comment[0].writer}"></span></p>
+      <div th:each="comment : ${comments}" class="book-card">
+        <p>댓글: <span th:text="${comment.story}"></span></p>
+        <p>작성자: <span th:text="${comment.writer}"></span></p>
+      </div>
       <!-- 블로그 작성일 -->
       <form class="addcomment-form" action="/addcomment" method="POST">
         <input name="story"/>

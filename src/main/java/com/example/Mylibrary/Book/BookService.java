@@ -13,7 +13,7 @@ public class BookService {
         book.setTitle(bookDto.getTitle());
         book.setAuthor(bookDto.getAuthor());
         book.setPublishedDate(bookDto.getPublishedDate());
-
+        book.setImageUrl(bookDto.getImageUrl());
         bookRepository.save(book);
     }
 }
