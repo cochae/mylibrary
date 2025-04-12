@@ -1,31 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta
-            name="viewport"
-            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <link href="/css/style.css" rel="stylesheet" />
     <!-- 시원 -->
-    <!-- <link href="../static/css/style.css" rel="stylesheet" /> -->
-</head>
-<body>
-<div th:replace="~{ nav.html::navbar}"></div>
-<!-- 시원 -->
-<!-- <div id="navbar"></div> -->
+    <link href="../static/css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div th:replace="~{ nav.html::navbar}"></div>
+    <!-- 시원 -->
+    <div id="navbar"></div>
 
-<div>
-  <div class="card" th:each="i : ${blogs}">
-    <div class="card-content">
-      <a th:href="@{ '/viewblog/' + ${i.id} }">
-        <h4 th:text="${i.title}"></h4>
-      </a>
+    <!-- <div>
+      <div class="card" th:each="i : ${blogs}">
+        <div class="card-content">
+          <a th:href="@{ '/viewblog/' + ${i.id} }">
+            <h4 th:text="${i.title}"></h4>
+          </a>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="main-container mybloglist-container">
+      <h2>내 블로그</h2>
+
+      <section>
+        <h3>작성한 글</h3>
+        <div class="blog-card-container" th:each="i : ${blogs}">
+          <article class="blog-card">
+            <div class="blog-info">
+              <p class="blog-profile">
+                <img src="" alt="프로필 사진" />
+                <span>닉네임</span>
+              </p>
+              <h4
+                class="blog-title"
+                th:href="@{ '/viewblog/' + ${i.id} }"
+                th:text="${i.title}"
+              >
+                블로그 제목
+              </h4>
+              <p class="blog-content" th:href="@{ '/viewblog/' + ${i.id} }">
+                내용 연결하기
+              </p>
+              <p class="wrapper-like-comment">
+                <span>공감 </span><span>24(연결)</span> | <span>댓글 </span>
+                <span>1(연결)</span>
+              </p>
+            </div>
+            <img src="" alt="" />
+          </article>
+        </div>
+      </section>
     </div>
-  </div>
-</div>
-
-</body>
+    <!-- 시원 -->
+    <div id="footer"></div>
+  </body>
+  <!-- 시원 -->
+  <script>
+    fetch("nav.html")
+      .then((response) => response.text())
+      .then((html) => {
+        document.getElementById("navbar").innerHTML = html;
+      })
+      .catch((error) => console.error("Error loading the navbar:", error));
+    fetch("footer.html")
+      .then((response) => response.text())
+      .then((html) => {
+        document.getElementById("footer").innerHTML = html;
+      })
+      .catch((error) => console.error("Error loading the navbar:", error));
+  </script>
 </html>
