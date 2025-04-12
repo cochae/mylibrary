@@ -139,6 +139,7 @@ body {
   left: 10px; /* 왼쪽에서 10px 떨어짐 */
 }
 
+/* pages */
 /* ST: login */
 .login-container {
   display: flex;
@@ -646,10 +647,11 @@ body {
     color: var(--c-white);
   }
 }
+/* ED: writeblog */
 
 /* ST: bloglist */
 .bloglist-container {
-  & h2 {
+  h2 {
     margin-bottom: 48px;
 
     font-size: 24px;
@@ -659,6 +661,7 @@ body {
 
   h3 {
     font-size: 20px;
+    font-weight: bold;
   }
   .hot-blog-card-container {
     display: flex;
@@ -716,50 +719,149 @@ body {
       }
     }
   }
+}
+/* ED: bloglist */
 
-  .blog-card-container {
+/* ST: mybloglist */
+.mybloglist-container {
+  h2 {
+    margin-bottom: 48px;
+
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+/* ED: mybloglist */
+
+/* ST: viewblog */
+.viewblog-container {
+  padding-block: 48px;
+
+  h2 {
+    margin-bottom: 48px;
+
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .view-container {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 
-    .blog-card {
-      display: flex;
-      gap: 12px;
+    margin-bottom: 20px;
 
-      padding-block: 24px;
-      border-bottom: var(--c-gray-10) 1px solid;
+    text-align: left;
 
-      height: 240px;
+    .get-title {
+      border: 0;
+      border-bottom: var(--c-gray-20) 1px solid;
+      padding: 10px;
 
-      .blog-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+      height: 30px;
 
-        .blog-profile {
-          color: var(--c-gray-20);
-        }
-        .blog-title {
-          font-size: 18px;
-        }
-        .blog-content {
-          color: var(--c-gray-20);
+      font-size: 20px;
+    }
+    .get-story {
+      padding: 10px;
+    }
 
-          display: -webkit-box;
-          -webkit-line-clamp: 5; /* 최대 줄 수 */
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-        .wrapper-like-comment {
-          color: var(--c-gray-20);
-        }
+    .get-img {
+      width: 100%;
+      padding: 10px;
+      height: auto;
+    }
+  }
+
+  .comments-container {
+    h4 {
+      margin-block: 10px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    /* 수정: 버튼 수정, width % 수정 -> flex로 */
+    .addcomment-form {
+      margin-block: 20px;
+
+      width: 100%;
+
+      .addcomment {
+        width: 90%;
+        height: 40px;
       }
+      .register-btn {
+        width: 8%;
+        height: 40px;
+      }
+    }
+    .comment-card {
+      padding: 10px;
+      border-bottom: 1px solid var(--c-gray-10);
 
-      img {
-        height: 100%;
-        aspect-ratio: 1/1;
+      .comment-writer {
+        margin-top: 10px;
+        color: var(--c-gray-20);
+        font-size: 12px;
       }
     }
   }
 }
-/* ED: bloglist */
+/* ED: viewblog */
+
+/* component */
+/* ST: blog-card-container */
+.blog-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .blog-card {
+    display: flex;
+    gap: 12px;
+
+    padding-block: 24px;
+    border-bottom: var(--c-gray-10) 1px solid;
+
+    height: 160px;
+
+    .blog-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      width: 100%;
+
+      .blog-profile {
+        color: var(--c-gray-20);
+      }
+      .blog-title {
+        font-size: 18px;
+      }
+      .blog-content {
+        color: var(--c-gray-20);
+
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* 최대 줄 수 */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .wrapper-like-comment {
+        color: var(--c-gray-20);
+      }
+    }
+
+    img {
+      height: 100%;
+      aspect-ratio: 1/1;
+    }
+  }
+}
+/* ED: blog-card-container */
