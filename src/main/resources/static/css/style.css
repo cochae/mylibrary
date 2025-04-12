@@ -115,7 +115,7 @@ body {
 }
 
 .link:hover {
-  background-color: #506776;
+  background-color: var(--primary);
   color: white;
 }
 
@@ -127,7 +127,7 @@ body {
 }
 .home-icon {
   font-size: 30px;
-  color: #2c3e50;
+  color: var(--primary);
   text-decoration: none;
   padding: 10px;
   background-color: e0f7da;

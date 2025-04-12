@@ -48,10 +48,7 @@ public class BlogController {
     String viewblog(@PathVariable Integer id, Model model) {
        Optional<Blog> result = blogRepository.findById(id);
        List<Comment> comments = commentRepository.findByBlog_Id(id);
-
         if (result.isPresent()) {
-            System.out.println("✅ 블로그 있음");
-
             model.addAttribute("blog", result.get());
             model.addAttribute("comments", comments);
             return "viewblog.html";

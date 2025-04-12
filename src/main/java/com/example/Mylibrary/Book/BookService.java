@@ -1,12 +1,12 @@
 package com.example.Mylibrary.Book;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+@RequiredArgsConstructor
 @Service
 public class BookService {
-    @Autowired
-    private BookRepository bookRepository;
+    private final BookRepository bookRepository;
 
     public void saveBook(BookDto bookDto) {
         Book book = new Book();
