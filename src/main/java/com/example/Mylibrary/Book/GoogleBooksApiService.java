@@ -33,12 +33,13 @@ public class GoogleBooksApiService {
                         String title = volumeInfo.optString("title", "제목 없음");
                         String author = volumeInfo.optString("authors", "저자 없음");
                         String publishedDate = volumeInfo.optString("publishedDate", "출판일 없음");
+                        String description = volumeInfo.optString("description", "설명 없음");
                         String imageUrl = null;
                         JSONObject imageLinks = volumeInfo.optJSONObject("imageLinks");
                         if (imageLinks != null) {
                             imageUrl = imageLinks.optString("thumbnail");  // 썸네일 이미지
                         }
-                        books.add(new Book(title, author, publishedDate, imageUrl));
+                        books.add(new Book(title, author, publishedDate, imageUrl, description));
                     }
                 }
             }

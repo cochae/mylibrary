@@ -460,6 +460,8 @@ body {
     align-items: center;
     gap: 40px;
 
+    margin-block: 40px;
+
     text-align: center;
 
     h3 {
@@ -823,9 +825,15 @@ body {
   flex-direction: column;
   gap: 12px;
 
+    a {
+        display: block;
+    }
+
   .blog-card {
     display: flex;
     gap: 12px;
+
+
 
     padding-block: 24px;
     border-bottom: var(--c-gray-10) 1px solid;

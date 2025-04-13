@@ -17,16 +17,19 @@ public class Book {
     private String author;
     private String publishedDate;
     private String imageUrl; // 🔥 이미지 URL 추가!
+    @Column(columnDefinition = "TEXT")
+    private String description;
 
     // 기본 생성자
     public Book() {}
 
     // 매개변수 있는 생성자
-    public Book(String title, String author, String publishedDate, String imageUrl) {
+    public Book(String title, String author, String publishedDate, String imageUrl, String description) {
         this.title = title;
         this.author = author;
         this.publishedDate = publishedDate;
         this.imageUrl = imageUrl;
+        this.description = description;
 
     }
 }

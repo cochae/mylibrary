@@ -53,15 +53,17 @@ public class BookController {
 
 class BookDto{
     private String imageUrl;
-    public String title;
-    public String author;
-    public String publishedDate;
+    private String title;
+    private String author;
+    private String publishedDate;
+    private String description;
 
-    BookDto(String title, String author, String publishedDate, String imageUrl){
+    BookDto(String title, String author, String publishedDate, String imageUrl, String description){
         this.title = title;
         this.author = author;
         this.publishedDate = publishedDate;
         this.imageUrl = imageUrl;
+        this.description = description;
     }
 }
 

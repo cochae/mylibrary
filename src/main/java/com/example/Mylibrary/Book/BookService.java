@@ -14,6 +14,7 @@ public class BookService {
         book.setAuthor(bookDto.getAuthor());
         book.setPublishedDate(bookDto.getPublishedDate());
         book.setImageUrl(bookDto.getImageUrl());
+        book.setDescription(bookDto.getDescription());
         bookRepository.save(book);
     }
 }
