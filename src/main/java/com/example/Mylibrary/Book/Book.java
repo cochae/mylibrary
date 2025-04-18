@@ -19,8 +19,8 @@ public class Book {
     private String imageUrl; // 🔥 이미지 URL 추가!
     @Column(columnDefinition = "TEXT")
     private String description;
-    private String category; // 카테고리
-    private String tag;
+    private String category; // 카테고리 id
+    private String tag; // 카테고리 name
 
     // 기본 생성자
     public Book() {}
@@ -32,7 +32,6 @@ public class Book {
             String publishedDate,
             String imageUrl,
             String description,
-            String category,
             String tag
     ) {
         this.title = title;
@@ -40,7 +39,6 @@ public class Book {
         this.publishedDate = publishedDate;
         this.imageUrl = imageUrl;
         this.description = description;
-        this.category = category;
         this.tag = tag;
     }
 }
