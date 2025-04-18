@@ -1,15 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>나만의 도서관</title>
-</head>
-<body>
-    <div class="card" th:each="book : ${books}">
-        <h4 th:text="${book.title}"></h4>
-        <h4 th:text="${book.author}"></h4>
-        <h4 th:text="${book.publishedDate}"></h4>
-        <img th:src="${book.imageUrl}" alt="Book Image" width="100"/>
+    <!-- 시원 -->
+    <link href="../static/css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- <div th:replace="~{ nav.html::navbar}"></div> -->
+    <!-- 시원 -->
+    <div id="navbar"></div>
+    <!-- <div class="card" th:each="book : ${books}">
+      <h4 th:text="${book.title}"></h4>
+      <h4 th:text="${book.author}"></h4>
+      <h4 th:text="${book.publishedDate}"></h4>
+      <img th:src="${book.imageUrl}" alt="Book Image" width="100" />
     </div>
-</body>
+    -->
+
+    <div class="main-container mybookshelf-container">
+      <h2>나의 서재</h2>
+
+      <div class="card-container">
+        <div class="book-card" th:each="book : ${books}">
+          <img
+            src="/images/ai.jpeg"
+            alt="책"
+            class="book-bsimg"
+            th:src="${book.imageUrl}"
+          />
+          <div class="book-info">
+            <p class="genre">소설</p>
+            <h4 class="book-title" th:text="${book.title}">
+              아몬드: 손원평 장편 소설
+            </h4>
+            <p class="book-author" th:text="${book.author}">손원평</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 시원 -->
+    <div id="footer"></div>
+  </body>
+  <!-- 시원 -->
+  <script>
+    fetch("nav.html")
+      .then((response) => response.text())
+      .then((html) => {
+        document.getElementById("navbar").innerHTML = html;
+      })
+      .catch((error) => console.error("Error loading the navbar:", error));
+    fetch("footer.html")
+      .then((response) => response.text())
+      .then((html) => {
+        document.getElementById("footer").innerHTML = html;
+      })
+      .catch((error) => console.error("Error loading the navbar:", error));
+  </script>
 </html>
