@@ -10,14 +10,14 @@
     <title>Document</title>
     <link href="/css/style.css" rel="stylesheet" />
     <!-- 시원 -->
-<!--    <link href="../static/css/style.css" rel="stylesheet" />-->
+    <link href="../static/css/style.css" rel="stylesheet" />
   </head>
   <body>
     <div th:replace="~{ nav.html::navbar}"></div>
     <!-- 시원 -->
-<!--    <div id="navbar"></div>-->
+    <div id="navbar"></div>
 
-     <div>
+    <div>
       <div class="card" th:each="i : ${blogs}">
         <div class="card-content">
           <a th:href="@{ '/viewblog/' + ${i.id} }">
@@ -34,20 +34,17 @@
         <h3>작성한 글</h3>
         <div class="blog-card-container" th:each="i : ${blogs}">
           <a th:href="@{ '/viewblog/' + ${i.id} }">
-
-          <article class="blog-card">
+            <article class="blog-card">
               <div class="blog-info">
                 <p class="blog-profile">
                   <img src="" alt="프로필 사진" />
                   <span>닉네임</span>
                 </p>
-                <h4
-                  class="blog-title"
-                  th:text="${i.title}"
-                >
-                    블로그 제목
-                </h4>
-                <p class="blog-content" th:href="@{ '/viewblog/' + ${i.id} }" th:text="${i.story}"
+                <h4 class="blog-title" th:text="${i.title}">블로그 제목</h4>
+                <p
+                  class="blog-content"
+                  th:href="@{ '/viewblog/' + ${i.id} }"
+                  th:text="${i.story}"
                 >
                   내용 연결하기
                 </p>
@@ -56,19 +53,18 @@
                   <span>1(연결)</span>
                 </p>
               </div>
-            <img
-                    th:src="${i.imgurl}"
-                    alt="블로그 이미지"
-                    style="max-width: 100%; height: auto"
-            />
-          </article>
+              <img
+                th:src="${i.imgurl}"
+                alt="블로그 이미지"
+                style="max-width: 100%; height: auto"
+              />
+            </article>
           </a>
-
         </div>
       </section>
     </div>
     <!-- 시원 -->
-<!--    <div id="footer"></div>-->
+    <div id="footer"></div>
   </body>
   <!-- 시원 -->
   <script>

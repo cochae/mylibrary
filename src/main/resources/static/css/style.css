@@ -37,6 +37,11 @@ body {
   --primary: #8b1e3f;
   --sub-primary: #f8e9ed;
 
+  --accent: #5d7f63;
+  /* --sub-accent: #e3ede8; */
+  --sub-accent: #cbd5cd;
+  /* --sub-accent: #a8c1b3; */
+
   --c-text-basic: #121212;
   --c-focus: #24388d;
   --c-warning: #ff1414;
@@ -79,7 +84,7 @@ body {
   padding-block: 48px;
 
   min-height: calc(100vh - 177.5px);
-  width: 1050px;
+  max-width: 1050px;
 }
 
 /* 제목 스타일 */
@@ -818,6 +823,79 @@ body {
 }
 /* ED: viewblog */
 
+/* ST: mybookshelf */
+.mybookshelf-container {
+  padding-block: 48px;
+
+  h2 {
+    margin-bottom: 48px;
+
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    gap: 20px;
+    overflow-x: auto;
+
+    .book-card {
+      border: 1px solid var(--sub-accent);
+      border-radius: 8px;
+
+      width: 220px;
+
+      .book-bsimg {
+        display: block;
+        object-fit: cover;
+
+        border-radius: 8px 8px 0 0;
+        height: 200px;
+        width: 100%;
+      }
+      .book-info {
+        padding: 16px;
+        box-sizing: border-box;
+
+        text-align: left;
+        align-content: center;
+        font-size: 12px;
+
+        > * {
+          margin-bottom: 8px;
+        }
+
+        .genre {
+          border-radius: 10px;
+          padding: 4px 10px;
+          box-sizing: border-box;
+
+          width: fit-content;
+
+          background-color: var(--accent);
+
+          color: white;
+        }
+
+        .book-title {
+          font-size: 1rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}
+/* ED: mybookshelf */
+
 /* component */
 /* ST: blog-card-container */
 .blog-card-container {
@@ -825,15 +903,13 @@ body {
   flex-direction: column;
   gap: 12px;
 
-    a {
-        display: block;
-    }
+  a {
+    display: block;
+  }
 
   .blog-card {
     display: flex;
     gap: 12px;
-
-
 
     padding-block: 24px;
     border-bottom: var(--c-gray-10) 1px solid;
@@ -869,6 +945,7 @@ body {
     img {
       height: 100%;
       aspect-ratio: 1/1;
+      object-fit: cover;
     }
   }
 }
