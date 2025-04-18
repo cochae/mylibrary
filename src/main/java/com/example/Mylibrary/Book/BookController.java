@@ -17,53 +17,33 @@ import java.util.List;
 @Controller
 public class BookController {
     @Autowired
-    private final BookService bookService;
     private final BookRepository bookRepository;
-    private final GoogleBooksApiService googleBooksApiService;
+    private final AladinApiService aladinApiService;
 
     @GetMapping("/booksearch")
-    public String searchBooks(@RequestParam(value = "query", defaultValue = "java") String query,
+    public String searchBooks(@RequestParam(value = "query", defaultValue = "") String query,
                               @RequestParam(value = "page", defaultValue = "1") int page,
-                              Model model)
-    {
-        int startIndex = (page - 1) * 20;
-        List<Book> books = googleBooksApiService.searchBooks(query, startIndex);
-        model.addAttribute("books", books); // 검색 결과를 뷰로 전달
+                              Model model) {
+        int startIndex = (page - 1) * 20;  // 알라딘은 page 기준이 1-base, MaxResults 지정 가능
+        List<Book> books = aladinApiService.searchBooks(query, page);  // aladinApiService 사용
+        model.addAttribute("books", books);
         model.addAttribute("query", query);
-        model.addAttribute("currentPage", page);  // 현재 페이지
+        model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", 3);
-        return "booksearch.html"; // booksearch.html로 반환
+        return "booksearch.html";
     }
+
     @PostMapping("/save")
-    public String saveBook(@ModelAttribute BookDto bookDto) {
-        bookService.saveBook(bookDto);
+    public String saveBook(@ModelAttribute Book book) {
+        bookRepository.save(book);
         return "redirect:/mybookshelf";
     }
 
     @GetMapping("/mybookshelf")
-    public String mybookshelf(Model model){
+    public String mybookshelf(Model model) {
         var result = bookRepository.findAll();
         model.addAttribute("books", result);
         return "mybookshelf.html";
-    }
-}
-
-@Getter
-@Setter
-
-class BookDto{
-    private String imageUrl;
-    private String title;
-    private String author;
-    private String publishedDate;
-    private String description;
-
-    BookDto(String title, String author, String publishedDate, String imageUrl, String description){
-        this.title = title;
-        this.author = author;
-        this.publishedDate = publishedDate;
-        this.imageUrl = imageUrl;
-        this.description = description;
     }
 }
 

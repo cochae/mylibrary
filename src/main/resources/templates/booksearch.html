@@ -7,16 +7,15 @@
 <body>
 <!--<div th:replace="~{ nav.html::nav-bar}"></div>-->
 
-<h1>Books Search</h1>
+<h1>도서 검색</h1>
 
 <!-- 검색어 입력 폼 -->
 <form action="#" th:action="@{/booksearch}" method="get">
-    <label for="query">Search for Books:</label>
-    <input type="text" id="query" name="query" th:value="${query}" placeholder="Enter search query"/>
+    <label for="query">검색: </label>
+    <input type="text" id="query" name="query" th:value="${query}" placeholder="검색어를 입력하세요"/>
     <button type="submit">Search</button>
 </form>
 
-<h2>Results for: <span th:text="${query}"></span></h2>
 <!-- 책 목록 표시 -->
 <ul>
     <li th:each="book : ${books}">
@@ -31,6 +30,8 @@
                 <input type="hidden" name="publishedDate" th:value="${book.publishedDate}"/>
                 <input type="hidden" name="imageUrl" th:value="${book.imageUrl}"/>
                 <input type="hidden" name="description" th:value="${book.description}"/>
+                <input type="hidden" name="category" th:value="${book.category}"/>
+                <input type="hidden" name="tag" th:value="${book.tag}"/>
                 <button type="submit">저장</button>
             </form>
         </div>
