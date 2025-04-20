@@ -1,0 +1,76 @@
+/* ST: viewblog */
+.viewblog-container {
+  padding-block: 48px;
+
+  h2 {
+    margin-bottom: 48px;
+
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .view-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    margin-bottom: 20px;
+
+    text-align: left;
+
+    .get-title {
+      border: 0;
+      border-bottom: var(--c-gray-20) 1px solid;
+      padding: 10px;
+
+      height: 30px;
+
+      font-size: 20px;
+    }
+    .get-story {
+      padding: 10px;
+    }
+
+    .get-img {
+      width: 100%;
+      padding: 10px;
+      height: auto;
+    }
+  }
+
+  .comments-container {
+    h4 {
+      margin-block: 10px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    /* 수정: 버튼 수정, width % 수정 -> flex로 */
+    .addcomment-form {
+      margin-block: 20px;
+
+      width: 100%;
+
+      .addcomment {
+        width: 90%;
+        height: 40px;
+      }
+      .register-btn {
+        width: 8%;
+        height: 40px;
+      }
+    }
+    .comment-card {
+      padding: 10px;
+      border-bottom: 1px solid var(--c-gray-10);
+
+      .comment-writer {
+        margin-top: 10px;
+        color: var(--c-gray-20);
+        font-size: 12px;
+      }
+    }
+  }
+}
+/* ED: viewblog */

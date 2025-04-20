@@ -1,0 +1,197 @@
+/* ST: home */
+/* ST: main-banner */
+.main-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+
+  background: linear-gradient(135deg, #8b1e3f, #b33951, #f56a79);
+
+  margin-top: 64px;
+  height: 452px;
+
+  color: var(--c-white);
+
+  h2 {
+    font-size: 40px;
+    font-weight: bold;
+  }
+  p {
+    text-align: center;
+    color: var(--sub-primary);
+  }
+
+  input {
+    padding: 12px 20px;
+    border-radius: 8px 0 0 8px;
+    border: 0;
+
+    width: 528px;
+    height: 24px;
+  }
+
+  button {
+    padding: 12px 24px;
+    border-radius: 0 8px 8px 0;
+    border: 0;
+
+    background: var(--primary);
+    color: var(--c-white);
+
+    box-sizing: content-box;
+
+    width: 55px;
+    height: 24px;
+  }
+
+  .keywords {
+    font-size: 12px;
+
+    span {
+      margin-right: 10px;
+
+      color: var(--sub-primary);
+    }
+
+    a {
+      border-radius: 10px;
+      padding: 5px 12px;
+
+      background-color: var(--primary);
+    }
+  }
+}
+/* ED: main-banner */
+
+/* ST: home-container */
+.home-container {
+  margin-top: 0;
+
+  /* ST: section 공통 */
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+    margin-block: 40px;
+
+    text-align: center;
+
+    h3 {
+      font-size: 24px;
+    }
+
+    p {
+      color: var(--c-gray-20);
+    }
+  }
+  /* ED: section 공통 */
+
+  .card-container {
+    display: flex;
+    justify-content: start;
+    gap: 24px;
+
+    overflow-x: auto;
+
+    width: 100%;
+
+    .book-card {
+      border: 1px solid var(--sub-primary);
+      border-radius: 8px;
+
+      width: 220px;
+      height: 480px;
+
+      .book-bsimg {
+        background-color: var(--sub-primary);
+
+        display: block;
+
+        border-radius: 8px 8px 0 0;
+        height: 320px;
+        width: 100%;
+      }
+      .book-info {
+        padding: 16px;
+
+        height: 160px;
+        box-sizing: border-box;
+
+        text-align: left;
+        align-content: center;
+        font-size: 12px;
+
+        > * {
+          margin-bottom: 8px;
+        }
+
+        .genre {
+          border-radius: 10px;
+          padding: 4px 10px;
+          box-sizing: border-box;
+
+          width: fit-content;
+
+          background-color: var(--primary);
+
+          color: white;
+        }
+
+        .book-title {
+          font-size: 1rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .wrapper {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+
+  /* ST: 서비스 소개 */
+  .service-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+
+    .service-card {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 8px;
+      padding: 24px;
+      width: 180px;
+      height: 180px;
+
+      background-color: #f9fafb;
+
+      img {
+        width: 40px;
+        aspect-ratio: 1/1;
+      }
+
+      h4 {
+        font-weight: bold;
+      }
+
+      p {
+        font-size: 12px;
+        color: var(--c-gray-20);
+      }
+    }
+  }
+  /* ED: 서비스 소개 */
+}
+/* ED: home-container */
+/* ED: home */

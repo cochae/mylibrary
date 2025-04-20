@@ -1,0 +1,72 @@
+/* ST: bloglist */
+.bloglist-container {
+  h2 {
+    margin-bottom: 48px;
+
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .hot-blog-card-container {
+    display: flex;
+    justify-content: space-between;
+
+    padding-block: 24px 48px;
+
+    .hot-blog-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      border: 1px solid var(--sub-primary);
+      border-radius: 8px;
+
+      width: 320px;
+      height: 280px;
+      overflow: hidden;
+
+      img {
+        display: block;
+
+        border-radius: 8px 8px 0 0;
+        height: 100px;
+        width: 100%;
+      }
+
+      h4 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        padding-inline: 12px;
+
+        font-size: 18px;
+      }
+      p {
+        display: -webkit-box;
+        -webkit-line-clamp: 5; /* 최대 줄 수 */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+
+        padding-inline: 12px;
+
+        color: var(--c-gray-20);
+      }
+      .wrapper {
+        display: flex;
+        justify-content: space-between;
+
+        padding: 0 12px 12px 12px;
+
+        color: var(--c-gray-20);
+        font-size: 12px;
+      }
+    }
+  }
+}
+/* ED: bloglist */

@@ -1,0 +1,105 @@
+/* ST: login */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+
+  h2 {
+    margin-bottom: 24px;
+
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .login-form {
+    margin-inline: 20px;
+    box-sizing: content-box;
+
+    fieldset {
+      padding: 0;
+      border: 0;
+      margin: 0;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-flow: column wrap;
+      width: 500px;
+
+      .input {
+        margin-bottom: 10px;
+
+        input {
+          height: 48px;
+          box-sizing: border-box;
+          width: 100%;
+          font-size: var(--s-text-small);
+          color: var(--c-black);
+          padding: 14px 0 13px 14px;
+          border-radius: 0;
+          border: 1px solid var(--c-gray-10);
+
+          &::placeholder {
+            color: var(--c-gray-20);
+            font-size: var(--s-text-small);
+          }
+        }
+
+        [class^="warning"] {
+          display: none;
+          color: var(--c-warning);
+          font-size: var(--s-text-warning);
+          /* height: 17px; */
+        }
+
+        /* 사용자가 입력한 값이 잘못된 값일 때 */
+        input:user-invalid + [class^="warning"] {
+          margin-block: 7px 0;
+          display: block;
+        }
+      }
+
+      .login-state {
+        display: flex;
+        margin-bottom: 5px;
+        align-self: flex-end;
+
+        input {
+          appearance: none;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          margin-right: 5px;
+
+          background-image: url(./images/unchecked.svg);
+
+          &:checked {
+            background: url(./images/checked.svg);
+          }
+        }
+
+        label {
+          color: var(--c-black);
+          font-size: var(--s-text-small);
+          margin-top: 5px;
+        }
+      }
+
+      .login-btn {
+        /* height: 56px; */
+        border: none;
+        background-color: var(--primary);
+        color: var(--c-white);
+        text-align: center;
+        font-size: var(--s-text-basic);
+        font-weight: var(--w-bold);
+        padding-block: 16px;
+        margin-block: 10px;
+        width: 100%;
+      }
+    }
+  }
+}
+/* ED: login */
