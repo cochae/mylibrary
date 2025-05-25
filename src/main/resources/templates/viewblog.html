@@ -18,17 +18,18 @@
       <div class="view-container">
         <h3 class="get-title" th:text="${blog.title}">제목</h3>
         <div class="get-story" th:text="${blog.story}">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
-          aliquam voluptatum, nemo illo quas sequi eos nam beatae cumque atque
-          doloremque? Illo, sunt accusantium. A cum accusantium provident quis
-          laboriosam.
         </div>
         <div th:if="${blog.imgurl != null}">
           <img class="get-img" th:src="${blog.imgurl}" alt="블로그 이미지" />
         </div>
       </div>
 
-      <div class="comments-container">
+      <form action="/like" method="post">
+        <input type="hidden" name="id" th:value="${blog.id}" />
+        <button type="submit">❤️‍🔥</button>
+        <span th:text="${blog.like_count}"></span>
+      </form>
+        <p>좋아요</p>
         <h4>댓글</h4>
 
         <form class="addcomment-form" action="/addcomment" method="POST">
@@ -38,12 +39,7 @@
         </form>
 
         <div th:each="comment : ${comments}" class="comment-card">
-          <p th:text="${comment.story}">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex,
-            necessitatibus? In eaque dolor exercitationem totam, atque laborum
-            deserunt architecto non numquam aliquam dolorum laboriosam vero
-            explicabo necessitatibus, maiores nisi labore?
-          </p>
+          <p th:text="${comment.story}"/>
           <p class="comment-writer">
             <span>작성자: </span>
             <span th:text="${comment.writer}">이서윤</span>
@@ -71,30 +67,30 @@
   </script>
 </html>
 
-<div class="blog-container">
-  <h1 th:text="${blog.title}"></h1>
-  <!-- DB에서 가져온 블로그 제목 -->
-  <p th:text="${blog.story}"></p>
-  <!-- DB에서 가져온 블로그 본문 -->
-  <!-- DB에서 가져온 이미지 URL을 img 태그로 출력 -->
-  <div th:if="${blog.imgurl != null}">
-    <img
-      th:src="${blog.imgurl}"
-      alt="블로그 이미지"
-      style="max-width: 100%; height: auto"
-    />
-  </div>
+<!--<div class="blog-container">-->
+<!--  <h1 th:text="${blog.title}"></h1>-->
+<!--  &lt;!&ndash; DB에서 가져온 블로그 제목 &ndash;&gt;-->
+<!--  <p th:text="${blog.story}"></p>-->
+<!--  &lt;!&ndash; DB에서 가져온 블로그 본문 &ndash;&gt;-->
+<!--  &lt;!&ndash; DB에서 가져온 이미지 URL을 img 태그로 출력 &ndash;&gt;-->
+<!--  <div th:if="${blog.imgurl != null}">-->
+<!--    <img-->
+<!--      th:src="${blog.imgurl}"-->
+<!--      alt="블로그 이미지"-->
+<!--      style="max-width: 100%; height: auto"-->
+<!--    />-->
+<!--  </div>-->
 
-  <p>작성자: <span th:text="${blog.writer}"></span></p>
-  <p>작성일: <span th:text="${blog.createdAt}"></span></p>
-  <div th:each="comment : ${comments}" class="book-card">
-    <p>댓글: <span th:text="${comment.story}"></span></p>
-    <p>작성자: <span th:text="${comment.writer}"></span></p>
-  </div>
-  <!-- 블로그 작성일 -->
-  <form class="addcomment-form" action="/addcomment" method="POST">
-    <input name="story" />
-    <input type="hidden" name="blog_id" th:value="${blog.id}" />
-    <button type="submit" class="register-btn">등록</button>
-  </form>
-</div>
+<!--  <p>작성자: <span th:text="${blog.writer}"></span></p>-->
+<!--  <p>작성일: <span th:text="${blog.createdAt}"></span></p>-->
+<!--  <div th:each="comment : ${comments}" class="book-card">-->
+<!--    <p>댓글: <span th:text="${comment.story}"></span></p>-->
+<!--    <p>작성자: <span th:text="${comment.writer}"></span></p>-->
+<!--  </div>-->
+<!--  &lt;!&ndash; 블로그 작성일 &ndash;&gt;-->
+<!--  <form class="addcomment-form" action="/addcomment" method="POST">-->
+<!--    <input name="story" />-->
+<!--    <input type="hidden" name="blog_id" th:value="${blog.id}" />-->
+<!--    <button type="submit" class="register-btn">등록</button>-->
+<!--  </form>-->
+<!--</div>-->

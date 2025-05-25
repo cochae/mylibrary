@@ -4,14 +4,20 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Controller
@@ -57,5 +63,12 @@ public class BookController {
         model.addAttribute("books", result);
         return "mybookshelf.html";
     }
+    @PostMapping("/delete")
+    public String delete(int id){
+        Optional<Book> result = bookRepository.findById(id);
+        bookRepository.delete(result.get());
+        return "redirect:/mybookshelf";
+    }
+
 }
 

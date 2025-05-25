@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>도서 추천</title>
+</head>
+<body>
+<h1>도서 추천 결과</h1>
+
+<div th:each="category : ${recommendations}">
+    <h2 th:text="${category.tag}">카테고리</h2>
+
+    <h3>베스트셀러</h3>
+    <ul>
+        <li th:each="book : ${category.best}">
+            <strong th:text="${book.title}">제목</strong> - <span th:text="${book.author}">저자</span>
+            <img
+                    th:src="${book.img}"
+            />
+        </li>
+    </ul>
+    <h3>신간</h3>
+    <ul>
+        <li th:each="book : ${category.new}">
+            <strong th:text="${book.title}">제목</strong> - <span th:text="${book.author}">저자</span>
+            <img
+                    th:src="${book.img}"
+            />
+        </li>
+    </ul>
+</div>
+</body>
+</html>

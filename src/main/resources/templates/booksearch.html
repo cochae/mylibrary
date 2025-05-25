@@ -1,56 +1,86 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Book Search</title>
     <link href="/css/style.css" rel="stylesheet" />
-
 </head>
 <body>
-<!--<div th:replace="~{ nav.html::nav-bar}"></div>-->
 
-<h1>도서 검색</h1>
+<h2>도서 검색</h2>
 
-<!-- 검색어 입력 폼 -->
+<!-- 검색 폼 -->
 <form action="#" th:action="@{/booksearch}" method="get">
     <label for="query">검색: </label>
     <input type="text" id="query" name="query" th:value="${query}" placeholder="검색어를 입력하세요"/>
     <button type="submit">Search</button>
 </form>
 
-<!-- 책 목록 표시 -->
-<ul>
-    <li th:each="book : ${books}">
+<!-- 책 목록 -->
+<ul class="">
+    <li class="search-book" th:each="book : ${books}">
         <div>
-            <h3 th:text="${book.title}"></h3>
-            <p th:text="'Author: ' + ${book.author}"></p>
-            <p th:text="'Published: ' + ${book.publishedDate}"></p>
-            <img th:src="${book.imageUrl}" alt="Book Image" width="100"/>
-            <form action="/save" method="POST">
-                <input type="hidden" name="title" th:value="${book.title}"/>
-                <input type="hidden" name="author" th:value="${book.author}"/>
-                <input type="hidden" name="publishedDate" th:value="${book.publishedDate}"/>
-                <input type="hidden" name="imageUrl" th:value="${book.imageUrl}"/>
-                <input type="hidden" name="description" th:value="${book.description}"/>
-                <input type="hidden" name="tag" th:value="${book.tag}"/>
-                <button type="submit">저장</button>
-            </form>
+            <h3 class="book-title" th:text="${book.title}"></h3>
+            <p class="book-author" th:text="'Author: ' + ${book.author}"></p>
+            <p class="book-published" th:text="'Published: ' + ${book.publishedDate}"></p>
+            <img class="book-img" th:src="${book.imageUrl}" alt="Book Image" width="100"/>
+
+            <button class="save" type="button"
+                    th:attr="data-title=${book.title},
+                         data-author=${book.author},
+                         data-date=${book.publishedDate},
+                         data-image=${book.imageUrl},
+                         data-description=${book.description},
+                         data-tag=${book.tag}"
+                    onclick="openRatingModal(this)">
+                저장
+            </button>
         </div>
     </li>
 </ul>
 
-<!-- 페이지 네비게이션 -->
-<div>
-    <span th:if="${currentPage > 1}">
-        <a th:href="@{/booksearch(query=${query}, page=${currentPage - 1})}">Previous</a>
-    </span>
-<div th:each="currentpage : ${totalPages}">
-        <!-- 1부터 totalPages까지 반복하여 페이지 번호 생성 -->
-    <span th:each="page : ${#numbers.sequence(1, totalPages)}">
-        <a th:href="@{/booksearch(query=${query}, page=${page})}" th:text="${page}"></a>
-    </span>
+<!-- 모달창 -->
+<div id="overlay" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.5);"></div>
+<div id="ratingModal" style="display:none; position:fixed; top:30%; left:30%; background:white; padding:20px; border-radius:10px;">
+    <form action="/save" method="POST">
+        <input type="hidden" id="title" name="title">
+        <input type="hidden" id="author" name="author">
+        <input type="hidden" id="publishedDate" name="publishedDate">
+        <input type="hidden" id="imageUrl" name="imageUrl">
+        <input type="hidden" id="description" name="description">
+        <input type="hidden" id="tag" name="tag">
+
+        <label for="rating">별점:</label>
+        <select name="rating" id="rating" required>
+            <option value="1">⭐</option>
+            <option value="2">⭐⭐</option>
+            <option value="3">⭐⭐⭐</option>
+            <option value="4">⭐⭐⭐⭐</option>
+            <option value="5">⭐⭐⭐⭐⭐</option>
+        </select>
+        <br><br>
+        <button type="submit">저장</button>
+        <button type="button" onclick="closeRatingModal()">취소</button>
+    </form>
 </div>
-    <span th:if="${currentPage < totalPages}">
-        <a th:href="@{/booksearch(query=${query}, page=${currentPage + 1})}">Next</a>
-    </span>
-</div>
+
+<script>
+    function openRatingModal(button) {
+<!--        document.getElementById('title').value = button.getAttribute('data-title');-->
+        document.getElementById('author').value = button.getAttribute('data-author');
+        document.getElementById('publishedDate').value = button.getAttribute('data-date');
+        document.getElementById('imageUrl').value = button.getAttribute('data-image');
+        document.getElementById('description').value = button.getAttribute('data-description');
+        document.getElementById('tag').value = button.getAttribute('data-tag');
+
+        document.getElementById('overlay').style.display = 'block';
+        document.getElementById('ratingModal').style.display = 'block';
+    }
+
+    function closeRatingModal() {
+        document.getElementById('overlay').style.display = 'none';
+        document.getElementById('ratingModal').style.display = 'none';
+    }
+</script>
+
 </body>
 </html>

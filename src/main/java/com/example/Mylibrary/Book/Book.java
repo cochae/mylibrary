@@ -8,11 +8,10 @@ import lombok.ToString;
 @Entity
 @Getter
 @Setter
-@ToString(exclude = "id")
 public class Book {
     @Id
+    private int id;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String title;
     private String author;
     private String publishedDate;
@@ -21,6 +20,7 @@ public class Book {
     private String description;
     private String category; // 카테고리 id
     private String tag; // 카테고리 name
+    private Integer rating;
 
     // 기본 생성자
     public Book() {}

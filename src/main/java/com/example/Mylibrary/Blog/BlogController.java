@@ -66,7 +66,17 @@ public class BlogController {
         return "mybloglist.html";
     }
     @GetMapping("/bloglist")
-    String bloglist(){
+    String bloglist(Model model) {
+        List<Blog> result = blogRepository.findAll();
+        model.addAttribute("blogs", result);
         return "bloglist.html";
+    }
+    @PostMapping("/like")
+    String like(int id){
+        Optional<Blog> result = blogRepository.findById(id);
+        Blog blog = result.get();
+        blog.setLike_count(blog.getLike_count()+1);
+        blogRepository.save(blog);
+        return "redirect:/viewblog/" + id;
     }
 }

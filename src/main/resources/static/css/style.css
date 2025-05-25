@@ -854,7 +854,7 @@ body {
 
       .book-bsimg {
         display: block;
-        object-fit: cover;
+        object-fit: contain;
 
         border-radius: 8px 8px 0 0;
         height: 200px;

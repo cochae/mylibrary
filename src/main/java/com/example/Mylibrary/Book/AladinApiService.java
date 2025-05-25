@@ -23,7 +23,9 @@ public class AladinApiService {
                 + "&start=" + page
                 + "&SearchTarget=Book"
                 + "&output=js"
-                + "&Version=20131101";
+                + "&Version=20131101"
+                + "&cover=" + "big";  // cover 크기 추가
+
 
         RestTemplate restTemplate = new RestTemplate();
         String response = restTemplate.getForObject(url, String.class);

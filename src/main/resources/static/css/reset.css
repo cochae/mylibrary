@@ -9,12 +9,10 @@ h6 {
   font-size: 1em;
   margin: 0;
 }
-
 a {
   color: inherit;
   text-decoration: none;
 }
-
 ul,
 ol {
   list-style: none;
@@ -22,7 +20,6 @@ ol {
   padding-inline-start: 0;
   margin: 0;
 }
-
 fieldset {
   border: 0;
   margin: 0;

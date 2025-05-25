@@ -7,25 +7,16 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>나의 블로그</title>
     <link href="/css/style.css" rel="stylesheet" />
     <!-- 시원 -->
-    <link href="../static/css/style.css" rel="stylesheet" />
+<!--    <link href="../static/css/style.css" rel="stylesheet" />-->
   </head>
   <body>
     <div th:replace="~{ nav.html::navbar}"></div>
     <!-- 시원 -->
-    <div id="navbar"></div>
+<!--    <div id="navbar"></div>-->
 
-    <div>
-      <div class="card" th:each="i : ${blogs}">
-        <div class="card-content">
-          <a th:href="@{ '/viewblog/' + ${i.id} }">
-            <h4 th:text="${i.title}"></h4>
-          </a>
-        </div>
-      </div>
-    </div>
 
     <div class="main-container mybloglist-container">
       <h2>내 블로그</h2>
@@ -64,7 +55,7 @@
       </section>
     </div>
     <!-- 시원 -->
-    <div id="footer"></div>
+<!--    <div id="footer"></div>-->
   </body>
   <!-- 시원 -->
   <script>
