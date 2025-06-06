@@ -1,16 +1,25 @@
-@import "./reset.css";
+@import url(reset.css);
+@import url(theme.css);
+@import url(layout.css);
+
+/* ST: components */
+@import url(components/maincontainer.css);
+@import url(components/blogcardcontainer.css);
+@import url(components/bookcardcontainer.css);
+/* ED: components */
 
 /* ST: pages */
-@import url(home.css);
-@import url(login.css);
-@import url(register.css);
-@import url(nav.css);
-@import url(writeblog.css);
-@import url(bloglist.css);
-@import url(mybloglist.css);
-@import url(viewblog.css);
-@import url(mybookshelf.css);
-/* ST: pages */
+@import url(pages/index.css);
+@import url(pages/home.css);
+@import url(pages/login.css);
+@import url(pages/register.css);
+@import url(pages/bloglist.css);
+@import url(pages/writeblog.css);
+@import url(pages/mybloglist.css);
+@import url(pages/viewblog.css);
+@import url(pages/mybookshelf.css);
+@import url(pages/recommendation.css);
+/* ED: pages */
 
 @font-face {
   font-family: "SpoqaHanSansNeo-Regular";
@@ -42,29 +51,6 @@
 }
 
 body {
-  --s-text-basic: 16px;
-  --s-text-small: 14px;
-  --s-text-warning: 12px;
-
-  --primary: #8b1e3f;
-  --sub-primary: #f8e9ed;
-
-  --accent: #5d7f63;
-  /* --sub-accent: #e3ede8; */
-  --sub-accent: #cbd5cd;
-  /* --sub-accent: #a8c1b3; */
-
-  --c-text-basic: #121212;
-  --c-focus: #24388d;
-  --c-warning: #ff1414;
-  --c-gray-10: #dadada;
-  --c-gray-20: #999;
-  --c-white: #fff;
-  --c-black: #333333;
-
-  --w-bold: 700;
-  --w-normal: 400;
-
   font-size: var(--s-text-basic);
   color: var(--c-text-basic);
   font-weight: var(--w-normal);
@@ -73,154 +59,12 @@ body {
   margin: 0;
 }
 
-.index-wrapper {
-  height: 100vh;
-  display: flex;
-  align-items: center;
+/* ST: h2 page-title */
+h2 {
+  margin-bottom: 48px;
 
-  .container {
-    margin: auto;
-    width: 500px;
-    text-align: center;
-    padding: 40px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-}
-
-/* ST: main-container */
-.main-container {
-  margin-top: 64px;
-  margin-inline: auto;
-  padding-block: 48px;
-
-  min-height: calc(100vh - 177.5px);
-  max-width: 1050px;
-}
-/* ED: main-container */
-
-/* 제목 스타일 */
-.title {
-  font-size: 32px;
-  color: #2c3e50;
-  margin-bottom: 20px;
-  font-family: "Bagel Fat One", system-ui;
-  font-weight: 400;
-  font-style: normal;
-}
-.bagel-fat-one-regular {
-  font-family: "Bagel Fat One", system-ui;
-  font-weight: 400;
-  font-style: normal;
-}
-
-/* ST: 링크 스타일 */
-.links {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.link {
-  font-size: 15px;
-  text-decoration: none;
-  color: #4c6246;
+  font-size: 24px;
   font-weight: bold;
-  padding: 10px 15px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.link:hover {
-  background-color: var(--primary);
-  color: white;
-}
-/* ED: 링크 스타일 */
-
-/* 푸터 스타일 */
-.footer {
-  margin-top: 20px;
-  font-size: 14px;
-  color: gray;
-}
-.home-icon {
-  font-size: 30px;
-  color: var(--primary);
-  text-decoration: none;
-  padding: 10px;
-  background-color: e0f7da;
-  border-radius: 50%;
-  transition: background-color 0.3s ease, color 0.3s ease;
-
-  position: absolute; /* 절대 위치 */
-  top: 10px; /* 상단에서 10px 떨어짐 */
-  left: 10px; /* 왼쪽에서 10px 떨어짐 */
-}
-
-/* ST: footer */
-.footer-wrapper {
-  padding: 48px 32px;
-
-  background-color: #64162d;
-
   text-align: center;
-  font-size: 14px;
-  color: var(--sub-primary);
 }
-/* ED: footer */
-
-/* component */
-/* ST: blog-card-container */
-.blog-card-container {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-
-  a {
-    display: block;
-  }
-
-  .blog-card {
-    display: flex;
-    gap: 12px;
-
-    padding-block: 24px;
-    border-bottom: var(--c-gray-10) 1px solid;
-
-    height: 160px;
-
-    .blog-info {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-      width: 100%;
-
-      .blog-profile {
-        color: var(--c-gray-20);
-      }
-      .blog-title {
-        font-size: 18px;
-      }
-      .blog-content {
-        color: var(--c-gray-20);
-
-        display: -webkit-box;
-        -webkit-line-clamp: 3; /* 최대 줄 수 */
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
-      .wrapper-like-comment {
-        color: var(--c-gray-20);
-      }
-    }
-
-    img {
-      height: 100%;
-      aspect-ratio: 1/1;
-      object-fit: cover;
-    }
-  }
-}
-/* ED: blog-card-container */
+/* ED: h2 page-title */

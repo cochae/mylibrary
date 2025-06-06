@@ -1,0 +1,75 @@
+.index-wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
+  .container {
+    margin: auto;
+    width: 500px;
+    text-align: center;
+    padding: 40px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* 제목 스타일 */
+.title {
+  font-size: 32px;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-family: "Bagel Fat One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+.bagel-fat-one-regular {
+  font-family: "Bagel Fat One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* ST: 링크 스타일 */
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.link {
+  font-size: 15px;
+  text-decoration: none;
+  color: #4c6246;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.link:hover {
+  background-color: var(--primary);
+  color: white;
+}
+/* ED: 링크 스타일 */
+
+/* ST: index footer */
+.footer {
+  margin-top: 20px;
+  font-size: 14px;
+  color: gray;
+}
+/* ED: index footer */
+
+.home-icon {
+  font-size: 30px;
+  color: var(--primary);
+  text-decoration: none;
+  padding: 10px;
+  background-color: e0f7da;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}

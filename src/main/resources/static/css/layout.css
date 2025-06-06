@@ -1,4 +1,4 @@
-/* ST: nav */
+/* ST: header */
 .nav {
   position: fixed;
   top: 0;
@@ -22,6 +22,9 @@
     width: 1050px;
 
     .nav-bar {
+      h1 {
+        display: inline-block;
+      }
       a {
         &:hover {
           color: var(--primary);
@@ -59,4 +62,16 @@
     }
   }
 }
-/* ED: nav */
+/* ED: header */
+
+/* ST: footer */
+.footer-wrapper {
+  padding: 48px 32px;
+
+  background-color: #64162d;
+
+  text-align: center;
+  font-size: 14px;
+  color: var(--sub-primary);
+}
+/* ED: footer */

@@ -2,14 +2,6 @@
 .writeblog-container {
   padding-block: 48px;
 
-  h2 {
-    margin-bottom: 48px;
-
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-  }
-
   .write-form {
     display: flex;
     flex-direction: column;

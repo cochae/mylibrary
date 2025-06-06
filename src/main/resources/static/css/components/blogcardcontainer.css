@@ -1,0 +1,53 @@
+/* ST: blog-card-container */
+.blog-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  a {
+    display: block;
+  }
+
+  .blog-card {
+    display: flex;
+    gap: 12px;
+
+    padding-block: 24px;
+    border-bottom: var(--c-gray-10) 1px solid;
+
+    height: 160px;
+
+    .blog-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      width: 100%;
+
+      .blog-profile {
+        color: var(--c-gray-20);
+      }
+      .blog-title {
+        font-size: 18px;
+      }
+      .blog-content {
+        color: var(--c-gray-20);
+
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* 최대 줄 수 */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .wrapper-like-comment {
+        color: var(--c-gray-20);
+      }
+    }
+
+    img {
+      height: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+    }
+  }
+}
+/* ED: blog-card-container */

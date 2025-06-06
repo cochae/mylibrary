@@ -1,0 +1,24 @@
+:root {
+  --s-text-basic: 16px;
+  --s-text-small: 14px;
+  --s-text-warning: 12px;
+
+  --primary: #8b1e3f;
+  --sub-primary: #f8e9ed;
+
+  --accent: #5d7f63;
+  /* --sub-accent: #e3ede8; */
+  --sub-accent: #cbd5cd;
+  /* --sub-accent: #a8c1b3; */
+
+  --c-text-basic: #121212;
+  --c-focus: #24388d;
+  --c-warning: #ff1414;
+  --c-gray-10: #dadada;
+  --c-gray-20: #999;
+  --c-white: #fff;
+  --c-black: #333333;
+
+  --w-bold: 700;
+  --w-normal: 400;
+}

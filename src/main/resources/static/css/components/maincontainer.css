@@ -1,0 +1,10 @@
+/* ST: main-container */
+.main-container {
+  margin-top: 64px;
+  margin-inline: auto;
+  padding-block: 48px;
+
+  min-height: calc(100vh - 177.5px);
+  max-width: 1050px;
+}
+/* ED: main-container */

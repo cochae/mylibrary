@@ -1,13 +1,5 @@
 /* ST: bloglist */
 .bloglist-container {
-  h2 {
-    margin-bottom: 48px;
-
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-  }
-
   h3 {
     font-size: 20px;
     font-weight: bold;
