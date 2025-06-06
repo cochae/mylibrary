@@ -1,0 +1,12 @@
+.recommendation-container {
+  padding-block: 48px;
+
+  .book-card-container {
+    padding-block: 20px;
+  }
+
+  h3 {
+    font-size: 20px;
+    padding-bottom: 20px;
+  }
+}
