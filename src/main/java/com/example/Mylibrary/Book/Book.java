@@ -18,9 +18,10 @@ public class Book {
     private String imageUrl; // 🔥 이미지 URL 추가!
     @Column(columnDefinition = "TEXT")
     private String description;
-    private String category; // 카테고리 id
+    private Integer category; // 카테고리 id
     private String tag; // 카테고리 name
     private Integer rating;
+    private String isbn;
 
     // 기본 생성자
     public Book() {}
@@ -32,7 +33,8 @@ public class Book {
             String publishedDate,
             String imageUrl,
             String description,
-            String tag
+            String tag,
+            String isbn
     ) {
         this.title = title;
         this.author = author;
@@ -40,5 +42,6 @@ public class Book {
         this.imageUrl = imageUrl;
         this.description = description;
         this.tag = tag;
+        this.isbn=isbn;
     }
 }

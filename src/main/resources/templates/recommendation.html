@@ -27,6 +27,15 @@
             />
         </li>
     </ul>
+    <h3>키워드</h3>
+    <ul>
+        <li th:each="book : ${category.keyword}">
+            <strong th:text="${book.title}">제목</strong> - <span th:text="${book.author}">저자</span>
+            <img
+                    th:src="${book.img}"
+            />
+        </li>
+    </ul>
 </div>
 </body>
 </html>

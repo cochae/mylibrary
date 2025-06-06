@@ -46,11 +46,12 @@ public class AladinApiService {
                     String description = item.optString("description", "설명 없음");
                     String imageUrl = item.optString("cover", null); // 표지 이미지
                     String rawCategory = item.optString("categoryName", "카테고리 없음");
+                    String isbn = item.optString("isbn", "isbn 없음");
                     String tag = rawCategory.contains(">")
                             ? rawCategory.substring(0, rawCategory.indexOf(">", rawCategory.indexOf(">") + 1))
                             : rawCategory;
 
-                    books.add(new Book(title, author, pubDate, imageUrl, description, tag));
+                    books.add(new Book(title, author, pubDate, imageUrl, description, tag, isbn));
                 }
             }
         } catch (Exception e) {

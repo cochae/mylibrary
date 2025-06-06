@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Optional;
@@ -40,18 +41,16 @@ public class BookController {
     }
 
     @PostMapping("/save")
-    public String saveBook(@ModelAttribute Book book) {
+    public String saveBook(@ModelAttribute Book book, RedirectAttributes redirectAttributes) {
         // 카테고리 이름을 가져와서 카테고리 ID를 찾고, Book 객체에 카테고리 ID를 설정합니다.
-        Integer categoryId = CategoryMapper.getCategoryId(book.getTag());  // 카테고리 이름 -> ID로 변환
-
-        if (categoryId != null) {
-            book.setCategory(String.valueOf(categoryId));  // 카테고리 ID를 Book 객체에 설정
-        } else {
-            // 카테고리 ID가 null이면 로깅을 추가하여 원인 파악
-            System.out.println("Category ID가 없습니다: " + book.getTag());
+        boolean exists = bookRepository.existsByIsbn(book.getIsbn());
+        if (exists) {
+            redirectAttributes.addFlashAttribute("error", "이미 등록된 책입니다.");
+            return "redirect:/booksearch";  // 또는 에러 알림 페이지
         }
-
-        // 책 저장
+        Integer categoryId = CategoryMapper.getCategoryId(book.getTag());  // 카테고리 이름 -> ID로 변환
+        if (categoryId != null)
+            book.setCategory(categoryId);
         bookRepository.save(book);  // 저장된 책을 DB에 저장
         return "redirect:/mybookshelf";  // 저장 후 책 목록으로 리다이렉트
     }
