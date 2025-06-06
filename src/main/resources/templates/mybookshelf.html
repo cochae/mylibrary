@@ -2,14 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>나만의 도서관</title>
+    <title>나의 서재</title>
+    <link href="/css/style.css" rel="stylesheet" />
+
     <!-- 시원 -->
-    <link href="../static/css/style.css" rel="stylesheet" />
+<!--    <link href="../static/css/style.css" rel="stylesheet" />-->
   </head>
   <body>
-    <!-- <div th:replace="~{ nav.html::navbar}"></div> -->
+
+  <div th:replace="~{ nav.html::navbar}"></div>
+
+  <!-- <div th:replace="~{ nav.html::navbar}"></div> -->
     <!-- 시원 -->
-    <div id="navbar"></div>
+<!--    <div id="navbar"></div>-->
     <!-- <div class="card" th:each="book : ${books}">
       <h4 th:text="${book.title}"></h4>
       <h4 th:text="${book.author}"></h4>
@@ -30,17 +35,24 @@
             th:src="${book.imageUrl}"
           />
           <div class="book-info">
-            <p class="genre">소설</p>
+            <p class="genre" th:text="${book.tag}"></p>
             <h4 class="book-title" th:text="${book.title}">
               아몬드: 손원평 장편 소설
             </h4>
             <p class="book-author" th:text="${book.author}">손원평</p>
+            <form action="/delete" method="POST">
+              <input type="hidden" name="id" th:value="${book.id}">
+              <button type="submit">🗑️</button>
+                <span th:each="i : ${#numbers.sequence(1,5)}"
+                      th:text="${i <= book.rating} ? '⭐' : '☆'">
+                </span>
+            </form>
           </div>
         </div>
       </div>
     </div>
     <!-- 시원 -->
-    <div id="footer"></div>
+<!--    <div id="footer"></div>-->
   </body>
   <!-- 시원 -->
   <script>

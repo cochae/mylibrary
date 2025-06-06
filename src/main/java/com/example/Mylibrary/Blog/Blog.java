@@ -23,10 +23,8 @@ public class Blog {
     @ManyToOne
     @JoinColumn(name = "member_id")
     private Member member;
-    @PrePersist
+    private int like_count = 0;
     public void prePersist() {
         this.createdAt = LocalDateTime.now(); // 현재 시간을 자동 설정
     }
-
-
 }

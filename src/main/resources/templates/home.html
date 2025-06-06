@@ -20,21 +20,7 @@
         당신의 취향과 관심사에 맞는 완벽한 책을 찾아보세요. <br />인공지능이
         당신만을 위한 도서를 추천해드립니다.
       </p>
-      <form>
-        <fieldset>
-          <legend class="sr-only">도서 검색</legend>
-          <label for="searchBook" class="sr-only"
-            >책 제목, 작가, 키워드로 검색하세요.</label
-          >
-          <input
-            type="text"
-            id="searchBook"
-            name="searchBook"
-            placeholder="책 제목, 작가, 키워드로 검색하세요."
-          />
-          <button type="submit">검색</button>
-        </fieldset>
-      </form>
+
       <div class="keywords">
         <span>인기 검색어: </span>
         <a href="">소설</a>
@@ -49,29 +35,6 @@
     <!-- ST: main-container -->
     <div class="main-container home-container">
       <!-- ST: AI 맞춤 추천 -->
-      <section>
-        <h3>당신을 위한 AI 맞춤 추천</h3>
-        <p>
-          당신의 독서 취향과 관심사를 분석하여 AI가 엄선한 독서 목록입니다.
-          <br />
-          더 많은 책을 저장할수록 추천은 더 정확해집니다.
-        </p>
-        <div class="card-container">
-          <div class="book-card" th:each="i : ${#numbers.sequence(1,5)}">
-            <img src="/images/ai.jpeg" alt="책" class="book-bsimg" />
-            <div class="book-info">
-              <p class="genre">소설</p>
-              <h4 class="book-title">아몬드: 손원평 장편 소설</h4>
-              <p class="book-author">손원평</p>
-              <p class="book-price">10,000원</p>
-              <div class="wrapper">
-                <span class="book-date">2025.04.02.</span>
-                <a href="" class="go-to-detail">상세보기</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       <!-- ED: AI 맞춤 추천 -->
 
       <!-- ST: 베스트 셀러 -->

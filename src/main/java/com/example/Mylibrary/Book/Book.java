@@ -8,19 +8,20 @@ import lombok.ToString;
 @Entity
 @Getter
 @Setter
-@ToString(exclude = "id")
 public class Book {
     @Id
+    private int id;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String title;
     private String author;
     private String publishedDate;
     private String imageUrl; // 🔥 이미지 URL 추가!
     @Column(columnDefinition = "TEXT")
     private String description;
-    private String category; // 카테고리
-    private String tag;
+    private Integer category; // 카테고리 id
+    private String tag; // 카테고리 name
+    private Integer rating;
+    private String isbn;
 
     // 기본 생성자
     public Book() {}
@@ -32,15 +33,15 @@ public class Book {
             String publishedDate,
             String imageUrl,
             String description,
-            String category,
-            String tag
+            String tag,
+            String isbn
     ) {
         this.title = title;
         this.author = author;
         this.publishedDate = publishedDate;
         this.imageUrl = imageUrl;
         this.description = description;
-        this.category = category;
         this.tag = tag;
+        this.isbn=isbn;
     }
 }
