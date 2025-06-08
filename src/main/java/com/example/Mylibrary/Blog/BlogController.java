@@ -29,7 +29,7 @@ public class BlogController {
         blog.setWriter(user.getUsername());
         blog.setMember(member);
         blogRepository.save(blog);
-        return "redirect:/bloglist";
+        return "redirect:/mybloglist";
     }
 
     @GetMapping("/writeblog")
@@ -68,14 +68,17 @@ public class BlogController {
     @GetMapping("/bloglist")
     String bloglist(Model model) {
         List<Blog> result = blogRepository.findAll();
+        List<Blog> like = blogRepository.findTop3ByOrderByLikeCountDesc();
         model.addAttribute("blogs", result);
+        model.addAttribute("likes", like);
+
         return "bloglist.html";
     }
     @PostMapping("/like")
     String like(int id){
         Optional<Blog> result = blogRepository.findById(id);
         Blog blog = result.get();
-        blog.setLike_count(blog.getLike_count()+1);
+        blog.setLikeCount(blog.getLikeCount()+1);
         blogRepository.save(blog);
         return "redirect:/viewblog/" + id;
     }

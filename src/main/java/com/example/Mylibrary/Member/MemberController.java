@@ -21,7 +21,7 @@ public class MemberController {
         var hash = new BCryptPasswordEncoder().encode(member.getPassword());
         member.setPassword(hash);
         memberRepository.save(member);
-        return "redirect:/login.html";
+        return "redirect:/login";
     }
     @GetMapping("/register")
     public String register(HttpServletRequest request, HttpServletResponse response) {

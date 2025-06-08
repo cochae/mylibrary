@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface BlogRepository extends JpaRepository<Blog, Integer> {
     List<Blog> findByMember(Member member);
-
+    List<Blog> findTop3ByOrderByLikeCountDesc();
 }
 

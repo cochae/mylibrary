@@ -15,7 +15,7 @@
     <div class="main-container recommendation-container">
       <h2>도서 추천 결과</h2>
 
-      <div th:each="category : ${recommendations}">
+      <div class="category-container" th:each="category : ${recommendations}">
         <h3 th:text="${category.tag}">카테고리</h3>
 
         <h4>베스트셀러</h4>
@@ -23,10 +23,8 @@
           <li class="book-card" th:each="book : ${category.best}">
             <img class="book-bsimg" th:src="${book.img}" />
             <div class="book-info">
-              <p>
-                <strong class="book-title" th:text="${book.title}"
-                  >아몬드: 손원평 장편 소설</strong
-                >
+              <p class="book-title" th:text="${book.title}"
+                  >아몬드: 손원평 장편 소설
               </p>
               <p th:text="${book.author}">손원평</p>
             </div>
@@ -37,10 +35,8 @@
           <li class="book-card" th:each="book : ${category.new}">
             <img class="book-bsimg" th:src="${book.img}" />
             <div class="book-info">
-              <p>
-                <strong class="book-title" th:text="${book.title}"
-                  >아몬드: 손원평 장편 소설</strong
-                >
+              <p class="book-title" th:text="${book.title}"
+              >아몬드: 손원평 장편 소설
               </p>
               <p th:text="${book.author}">손원평</p>
             </div>
@@ -51,10 +47,8 @@
           <li class="book-card" th:each="book : ${category.keyword}">
             <img class="book-bsimg" th:src="${book.img}" />
             <div class="book-info">
-              <p>
-                <strong class="book-title" th:text="${book.title}"
-                  >아몬드: 손원평 장편 소설</strong
-                >
+              <p class="book-title" th:text="${book.title}"
+              >아몬드: 손원평 장편 소설
               </p>
               <p th:text="${book.author}">손원평</p>
             </div>

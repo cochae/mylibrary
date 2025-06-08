@@ -5,17 +5,19 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+
 @Entity
 @Getter
 @Setter
 public class Book {
     @Id
-    private int id;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String title;
     private String author;
     private String publishedDate;
-    private String imageUrl; // 🔥 이미지 URL 추가!
+    @Column(name = "image_url")
+    private String image_url; // 🔥 이미지 URL 추가!
     @Column(columnDefinition = "TEXT")
     private String description;
     private Integer category; // 카테고리 id
@@ -31,7 +33,7 @@ public class Book {
             String title,
             String author,
             String publishedDate,
-            String imageUrl,
+            String image_url,
             String description,
             String tag,
             String isbn
@@ -39,7 +41,7 @@ public class Book {
         this.title = title;
         this.author = author;
         this.publishedDate = publishedDate;
-        this.imageUrl = imageUrl;
+        this.image_url = image_url;
         this.description = description;
         this.tag = tag;
         this.isbn=isbn;

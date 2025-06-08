@@ -25,10 +25,9 @@
       <div class="book-card-container">
         <div class="book-card" th:each="book : ${books}">
           <img
-            src="/images/ai.jpeg"
             alt="책"
             class="book-bsimg"
-            th:src="${book.imageUrl}"
+            th:src="${book.image_url}"
           />
           <div class="book-info">
             <p class="genre" th:text="${book.tag}"></p>

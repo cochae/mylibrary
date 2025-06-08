@@ -24,12 +24,14 @@
         </div>
       </div>
 
-      <form action="/like" method="post">
+      <form class="like-container" action="/like" method="post">
         <input type="hidden" name="id" th:value="${blog.id}" />
+        <span>좋아요</span>
         <button type="submit">❤️‍🔥</button>
-        <span th:text="${blog.like_count}"></span>
+        <span th:text="${blog.LikeCount}"></span>
       </form>
-        <p>좋아요</p>
+
+      <div class="comments-container">
         <h4>댓글</h4>
 
         <form class="addcomment-form" action="/addcomment" method="POST">
@@ -47,8 +49,10 @@
         </div>
       </div>
     </div>
+    <!-- footer -->
+    <div th:replace="~{ footer.html::footer}"></div>
     <!-- 시원 -->
-<!--    <div id="footer"></div>-->
+    <!-- <div id="footer"></div> -->
   </body>
   <!-- 시원 -->
   <script>

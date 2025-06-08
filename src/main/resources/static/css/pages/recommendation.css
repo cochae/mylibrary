@@ -1,12 +1,29 @@
 .recommendation-container {
   padding-block: 48px;
 
+  .category-container{
+    padding: 40px;
+
+    border-bottom: 1px solid var(--c-gray-10);
+  }
+
   .book-card-container {
-    padding-block: 20px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  h2 {
+    margin-bottom: 24px;
   }
 
   h3 {
     font-size: 20px;
-    padding-bottom: 20px;
+    text-align: center;
+
+  }
+
+  h4 {
+    font-size: 18px;
+    text-align: center;
+    padding-block: 20px;
   }
 }

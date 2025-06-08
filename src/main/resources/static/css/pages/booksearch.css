@@ -12,19 +12,28 @@
     input {
       padding: 10px;
       width: 80%;
+      border-radius: 10px;
+      border: 1px solid gray;
     }
 
     button {
       padding: 10px;
-      background: none;
+      background: var(--primary);
+      border-radius: 10px;
+      border: none;
+      color: var(--c-white);
+      cursor: pointer;
     }
   }
 
   .book-list {
+    padding-block: 20px;
     .book-item {
       display: flex;
+      justify-items: space-between;
       gap: 20px;
       padding: 20px;
+      border-bottom: 1px gray solid;
 
       .book-info {
         flex: 1;
@@ -46,6 +55,7 @@
         border: gray 1px solid;
         border-radius: 8px;
         padding: 10px;
+        cursor: pointer;
       }
     }
   }

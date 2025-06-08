@@ -39,7 +39,7 @@
 
         font-size: 18px;
       }
-      p {
+      .blog-content {
         display: -webkit-box;
         -webkit-line-clamp: 5; /* 최대 줄 수 */
         -webkit-box-orient: vertical;
@@ -49,14 +49,11 @@
 
         color: var(--c-gray-20);
       }
-      .wrapper {
-        display: flex;
-        justify-content: space-between;
+      .wrapper-like-comment {
+          padding-inline: 12px;
+          padding-bottom: 12px;
+          color: var(--c-gray-20);
 
-        padding: 0 12px 12px 12px;
-
-        color: var(--c-gray-20);
-        font-size: 12px;
       }
     }
   }

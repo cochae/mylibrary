@@ -15,7 +15,7 @@ public class Comment {
     private int id;
     private String story;
     private String writer;
-    private int likeCount;
+    private int like_count;
     @ManyToOne
     @JoinColumn(name = "blog_id")
     private Blog blog;

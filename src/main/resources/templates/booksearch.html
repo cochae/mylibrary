@@ -41,7 +41,7 @@
         <li class="book-item" th:each="book : ${books}">
           <img
             class="book-img"
-            th:src="${book.imageUrl}"
+            th:src="${book.image_url}"
             alt="Book Image"
             width="100"
           />
@@ -57,7 +57,7 @@
             th:attr="data-title=${book.title},
                        data-author=${book.author},
                        data-date=${book.publishedDate},
-                       data-image=${book.imageUrl},
+                       data-image=${book.image_url},
                         data-description=${book.description},
                        data-tag=${book.tag},
                        data-isbn=${book.isbn}"
@@ -76,7 +76,7 @@
             <input type="hidden" id="title" name="title" />
             <input type="hidden" id="author" name="author" />
             <input type="hidden" id="publishedDate" name="publishedDate" />
-            <input type="hidden" id="imageUrl" name="imageUrl" />
+            <input type="hidden" id="image_url" name="image_url" />
             <input type="hidden" id="description" name="description" />
             <input type="hidden" id="tag" name="tag" />
             <input type="hidden" id="isbn" name="isbn" />
@@ -99,6 +99,10 @@
         </form>
       </div>
     </div>
+    <!-- footer -->
+    <div th:replace="~{ footer.html::footer}"></div>
+    <!-- 시원 -->
+    <!-- <div id="footer"></div> -->
     <script>
       function openRatingModal(button) {
         document.getElementById("title").value =
@@ -107,7 +111,7 @@
           button.getAttribute("data-author");
         document.getElementById("publishedDate").value =
           button.getAttribute("data-date");
-        document.getElementById("imageUrl").value =
+        document.getElementById("image_url").value =
           button.getAttribute("data-image");
         document.getElementById("description").value =
           button.getAttribute("data-description");
