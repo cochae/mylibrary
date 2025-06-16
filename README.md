@@ -1,2 +1,1 @@
-캡스톤 1 프로젝트
-나만의 도서관
+[캡스톤최종발표.pdf](https://github.com/user-attachments/files/20756786/default.pdf)
