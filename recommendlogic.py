@@ -16,12 +16,12 @@ def get_connection():
     return mysql.connector.connect(
         host="chaewonlibrary.mysql.database.azure.com",         # 로컬 MySQL 서버 주소
         user="ycw1203",              # 로컬 MySQL 사용자 이름 (원하는 걸로 바꿔주세요)
-        password="chaewon1203!",              # 비밀번호가 있으면 입력
+        password="",              # 비밀번호가 있으면 입력
         database="library"        # 로컬에 만든 DB 이름
         # ssl_ca 제거: 로컬에서는 SSL 인증서 필요 없음
     )
 
-API_KEY = 'ttbycw12031805001'
+API_KEY = ''
 
 # top3카테고리 뽑는 함수 정의
 def get_top_categories():
@@ -181,3 +181,4 @@ def recommend():
 
 if __name__ == '__main__':
     bookrecommend.run(port=5000)
+
