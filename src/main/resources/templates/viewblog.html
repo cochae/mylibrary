@@ -5,20 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>블로그 보기</title>
     <link href="/css/style.css" rel="stylesheet" />
-    <!-- 시원 -->
-<!--    <link href="../static/css/style.css" rel="stylesheet" />-->
   </head>
   <body>
     <div th:replace="~{ nav.html::navbar}"></div>
-    <!-- 시원 -->
-<!--    <div id="navbar"></div>-->
 
     <div class="main-container viewblog-container">
       <h2>내 블로그</h2>
       <div class="view-container">
         <h3 class="get-title" th:text="${blog.title}">제목</h3>
-        <div class="get-story" th:text="${blog.story}">
-        </div>
+        <div class="get-story" th:text="${blog.story}"></div>
         <div th:if="${blog.imgurl != null}">
           <img class="get-img" th:src="${blog.imgurl}" alt="블로그 이미지" />
         </div>
@@ -41,7 +36,7 @@
         </form>
 
         <div th:each="comment : ${comments}" class="comment-card">
-          <p th:text="${comment.story}"/>
+          <p th:text="${comment.story}" />
           <p class="comment-writer">
             <span>작성자: </span>
             <span th:text="${comment.writer}">이서윤</span>
@@ -49,52 +44,6 @@
         </div>
       </div>
     </div>
-    <!-- footer -->
     <div th:replace="~{ footer.html::footer}"></div>
-    <!-- 시원 -->
-    <!-- <div id="footer"></div> -->
   </body>
-  <!-- 시원 -->
-  <script>
-    fetch("nav.html")
-      .then((response) => response.text())
-      .then((html) => {
-        document.getElementById("navbar").innerHTML = html;
-      })
-      .catch((error) => console.error("Error loading the navbar:", error));
-    fetch("footer.html")
-      .then((response) => response.text())
-      .then((html) => {
-        document.getElementById("footer").innerHTML = html;
-      })
-      .catch((error) => console.error("Error loading the navbar:", error));
-  </script>
 </html>
-
-<!--<div class="blog-container">-->
-<!--  <h1 th:text="${blog.title}"></h1>-->
-<!--  &lt;!&ndash; DB에서 가져온 블로그 제목 &ndash;&gt;-->
-<!--  <p th:text="${blog.story}"></p>-->
-<!--  &lt;!&ndash; DB에서 가져온 블로그 본문 &ndash;&gt;-->
-<!--  &lt;!&ndash; DB에서 가져온 이미지 URL을 img 태그로 출력 &ndash;&gt;-->
-<!--  <div th:if="${blog.imgurl != null}">-->
-<!--    <img-->
-<!--      th:src="${blog.imgurl}"-->
-<!--      alt="블로그 이미지"-->
-<!--      style="max-width: 100%; height: auto"-->
-<!--    />-->
-<!--  </div>-->
-
-<!--  <p>작성자: <span th:text="${blog.writer}"></span></p>-->
-<!--  <p>작성일: <span th:text="${blog.createdAt}"></span></p>-->
-<!--  <div th:each="comment : ${comments}" class="book-card">-->
-<!--    <p>댓글: <span th:text="${comment.story}"></span></p>-->
-<!--    <p>작성자: <span th:text="${comment.writer}"></span></p>-->
-<!--  </div>-->
-<!--  &lt;!&ndash; 블로그 작성일 &ndash;&gt;-->
-<!--  <form class="addcomment-form" action="/addcomment" method="POST">-->
-<!--    <input name="story" />-->
-<!--    <input type="hidden" name="blog_id" th:value="${blog.id}" />-->
-<!--    <button type="submit" class="register-btn">등록</button>-->
-<!--  </form>-->
-<!--</div>-->

@@ -4,51 +4,30 @@
     <meta charset="UTF-8" />
     <title>블로그 작성 페이지</title>
     <link href="/css/style.css" rel="stylesheet" />
-    <!-- 시원 -->
-    <!-- <link href="../static/css/style.css" rel="stylesheet" /> -->
   </head>
   <body>
     <div th:replace="~{ nav.html::navbar}"></div>
-    <!-- 시원 -->
-    <!-- <div id="navbar"></div> -->
 
     <div class="main-container writeblog-container">
       <h2>블로그 작성</h2>
       <form method="post" action="/addblog">
         <div class="write-form">
           <label for="title" class="sr-only">제목을 입력하세요.</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            class="input-title"
-            placeholder="제목을 입력하세요."
-            required
-          />
+          <input type="text" id="title" name="title" class="input-title" placeholder="제목을 입력하세요." required />
           <label for="story" class="sr-only">내용을 입력하세요.</label>
-          <textarea
-            name="story"
-            id="story"
-            class="input-story"
-            placeholder="내용을 입력하세요."
-          ></textarea>
+          <textarea name="story" id="story" class="input-story" placeholder="내용을 입력하세요."></textarea>
           <input type="file" id="fileInput" />
           <!-- 파일을 선택하는 input -->
           <input type="hidden" name="imgurl" id="imgurl" />
           <!-- 업로드된 이미지 URL을 저장할 hidden input -->
 
-          <button type="button" onclick="uploadFile()" class="upload-btn">
-            발행하기
-          </button>
+          <button type="button" onclick="uploadFile()" class="upload-btn">발행하기</button>
           <!-- 저장 버튼 클릭 시 업로드 -->
         </div>
       </form>
     </div>
 
-    <!-- footer -->
     <div th:replace="~{ footer.html::footer}"></div>
-    <!-- 시원 -->
-    <!-- <div id="footer"></div> -->
 
     <script>
       async function uploadFile() {
@@ -85,19 +64,4 @@
       }
     </script>
   </body>
-  <!-- 시원 -->
-  <!-- <script>
-    fetch("nav.html")
-      .then((response) => response.text())
-      .then((html) => {
-        document.getElementById("navbar").innerHTML = html;
-      })
-      .catch((error) => console.error("Error loading the navbar:", error));
-    fetch("footer.html")
-      .then((response) => response.text())
-      .then((html) => {
-        document.getElementById("footer").innerHTML = html;
-      })
-      .catch((error) => console.error("Error loading the navbar:", error));
-  </script> -->
 </html>

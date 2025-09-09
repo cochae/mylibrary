@@ -2,21 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>나의 블로그</title>
     <link href="/css/style.css" rel="stylesheet" />
-    <!-- 시원 -->
-<!--    <link href="../static/css/style.css" rel="stylesheet" />-->
   </head>
   <body>
     <div th:replace="~{ nav.html::navbar}"></div>
-    <!-- 시원 -->
-<!--    <div id="navbar"></div>-->
-
 
     <div class="main-container mybloglist-container">
       <h2>내 블로그</h2>
@@ -28,45 +20,15 @@
             <article class="blog-card">
               <div class="blog-info">
                 <h4 class="blog-title" th:text="${i.title}">블로그 제목</h4>
-                <p
-                  class="blog-content"
-                  th:href="@{ '/viewblog/' + ${i.id} }"
-                  th:text="${i.story}"
-                >
-                  내용 연결하기
-                </p>
-                <p class="wrapper-like-comment">
-                  <span>공감 </span><span th:text="${i.likeCount}"> </span> | <span>댓글 1</span>
-                </p>
+                <p class="blog-content" th:href="@{ '/viewblog/' + ${i.id} }" th:text="${i.story}">내용 연결하기</p>
+                <p class="wrapper-like-comment"><span>공감 </span><span th:text="${i.likeCount}"> </span> | <span>댓글 1</span></p>
               </div>
-              <img
-                th:src="${i.imgurl}"
-                alt="블로그 이미지"
-                style="max-width: 100%; height: auto"
-              />
+              <img th:src="${i.imgurl}" alt="블로그 이미지" style="max-width: 100%; height: auto" />
             </article>
           </a>
         </div>
       </section>
     </div>
-    <!-- footer -->
     <div th:replace="~{ footer.html::footer}"></div>
-    <!-- 시원 -->
-    <!-- <div id="footer"></div> -->
   </body>
-  <!-- 시원 -->
-  <script>
-    fetch("nav.html")
-      .then((response) => response.text())
-      .then((html) => {
-        document.getElementById("navbar").innerHTML = html;
-      })
-      .catch((error) => console.error("Error loading the navbar:", error));
-    fetch("footer.html")
-      .then((response) => response.text())
-      .then((html) => {
-        document.getElementById("footer").innerHTML = html;
-      })
-      .catch((error) => console.error("Error loading the navbar:", error));
-  </script>
 </html>

@@ -4,13 +4,9 @@
     <meta charset="UTF-8" />
     <title>도서 추천</title>
     <link href="/css/style.css" rel="stylesheet" />
-    <!-- 시원 -->
-    <!-- <link href="../static/css/style.css" rel="stylesheet" /> -->
   </head>
   <body>
     <div th:replace="~{ nav.html::navbar}"></div>
-    <!-- 시원 -->
-    <!-- <div id="navbar"></div> -->
 
     <div class="main-container recommendation-container">
       <h2>도서 추천 결과</h2>
@@ -23,9 +19,7 @@
           <li class="book-card" th:each="book : ${category.best}">
             <img class="book-bsimg" th:src="${book.img}" />
             <div class="book-info">
-              <p class="book-title" th:text="${book.title}"
-                  >아몬드: 손원평 장편 소설
-              </p>
+              <p class="book-title" th:text="${book.title}">아몬드: 손원평 장편 소설</p>
               <p th:text="${book.author}">손원평</p>
             </div>
           </li>
@@ -35,9 +29,7 @@
           <li class="book-card" th:each="book : ${category.new}">
             <img class="book-bsimg" th:src="${book.img}" />
             <div class="book-info">
-              <p class="book-title" th:text="${book.title}"
-              >아몬드: 손원평 장편 소설
-              </p>
+              <p class="book-title" th:text="${book.title}">아몬드: 손원평 장편 소설</p>
               <p th:text="${book.author}">손원평</p>
             </div>
           </li>
@@ -47,33 +39,13 @@
           <li class="book-card" th:each="book : ${category.keyword}">
             <img class="book-bsimg" th:src="${book.img}" />
             <div class="book-info">
-              <p class="book-title" th:text="${book.title}"
-              >아몬드: 손원평 장편 소설
-              </p>
+              <p class="book-title" th:text="${book.title}">아몬드: 손원평 장편 소설</p>
               <p th:text="${book.author}">손원평</p>
             </div>
           </li>
         </ul>
       </div>
     </div>
-    <!-- footer -->
     <div th:replace="~{ footer.html::footer}"></div>
-    <!-- 시원 -->
-    <!-- <div id="footer"></div> -->
   </body>
-  <!-- 시원 -->
-  <script>
-    fetch("nav.html")
-      .then((response) => response.text())
-      .then((html) => {
-        document.getElementById("navbar").innerHTML = html;
-      })
-      .catch((error) => console.error("Error loading the navbar:", error));
-    fetch("footer.html")
-      .then((response) => response.text())
-      .then((html) => {
-        document.getElementById("footer").innerHTML = html;
-      })
-      .catch((error) => console.error("Error loading the navbar:", error));
-  </script>
 </html>

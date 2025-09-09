@@ -4,22 +4,14 @@
     <meta charset="UTF-8" />
     <title>HOME</title>
     <link href="/css/style.css" rel="stylesheet" />
-    <!-- 시원 -->
-    <!-- <link href="../static/css/style.css" rel="stylesheet" /> -->
   </head>
   <body>
-    <!-- navbar -->
     <div th:replace="~{ nav.html::navbar}"></div>
-    <!-- 시원 -->
-    <!-- <div id="navbar"></div> -->
 
     <!-- ST: 메인 배너 -->
     <div class="main-banner">
       <h2>AI 맞춤 도서 추천 서비스</h2>
-      <p>
-        당신의 취향과 관심사에 맞는 완벽한 책을 찾아보세요. <br />인공지능이
-        당신만을 위한 도서를 추천해드립니다.
-      </p>
+      <p>당신의 취향과 관심사에 맞는 완벽한 책을 찾아보세요. <br />인공지능이 당신만을 위한 도서를 추천해드립니다.</p>
 
       <div class="keywords">
         <span>인기 검색어: </span>
@@ -45,15 +37,11 @@
             <img th:src="${book.bsimg}" alt="책" class="book-bsimg" />
             <div class="book-info">
               <p class="genre">소설</p>
-              <h4 th:text="${book.title}" class="book-title">
-                아몬드: 손원평 장편 소설
-              </h4>
+              <h4 th:text="${book.title}" class="book-title">아몬드: 손원평 장편 소설</h4>
               <p th:text="${book.author}" class="book-author">손원평</p>
               <p th:text="${book.price}" class="book-price">10,000원</p>
               <div class="wrapper">
-                <span th:text="${book.date}" class="book-date"
-                  >2025.04.02.</span
-                >
+                <span th:text="${book.date}" class="book-date">2025.04.02.</span>
                 <a href="" class="go-to-detail">상세보기</a>
               </div>
             </div>
@@ -65,10 +53,7 @@
       <!-- ST: 서비스 소개 -->
       <section>
         <h3>AI 도서 추천, 어떻게 작동할까요?</h3>
-        <p>
-          나만의 도서관은 최신 인공지능 기술을 활용하여 개인화된 도서 추천
-          서비스를 제공합니다.
-        </p>
+        <p>나만의 도서관은 최신 인공지능 기술을 활용하여 개인화된 도서 추천 서비스를 제공합니다.</p>
         <div class="service-container">
           <div class="service-card">
             <img src="/images/ico_profile.svg" alt="" />
@@ -98,22 +83,5 @@
 
     <!-- footer -->
     <div th:replace="~{ footer.html::footer}"></div>
-    <!-- 시원 -->
-    <!-- <div id="footer"></div> -->
   </body>
-  <!-- 시원 -->
-  <!-- <script>
-    fetch("nav.html")
-      .then((response) => response.text())
-      .then((html) => {
-        document.getElementById("navbar").innerHTML = html;
-      })
-      .catch((error) => console.error("Error loading the navbar:", error));
-    fetch("footer.html")
-      .then((response) => response.text())
-      .then((html) => {
-        document.getElementById("footer").innerHTML = html;
-      })
-      .catch((error) => console.error("Error loading the navbar:", error));
-  </script> -->
 </html>
